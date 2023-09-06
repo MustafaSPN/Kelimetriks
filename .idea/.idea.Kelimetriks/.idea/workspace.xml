@@ -6,25 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Authentication.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Authentication.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AuthManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AuthManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameEvent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Messenger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Messenger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UserEmail.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UserEmail.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/AuthManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/AuthManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UIManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UIManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Deneme.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,7 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1693913387531</updated>
       <workItem from="1693913388587" duration="9940000" />
-      <workItem from="1693984494733" duration="16974000" />
+      <workItem from="1693984494733" duration="19433000" />
     </task>
     <servers />
   </component>
