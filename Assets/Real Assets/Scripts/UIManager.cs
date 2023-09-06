@@ -48,20 +48,25 @@ public class UIManager : MonoBehaviour
 
     public void LoginButtonPressedForLogin()
     {
-        Messenger<string,string>.Broadcast(GameEvent.LOG_IN,loginEmail.text,loginPassword.text);
+        Messenger<string, string>.Broadcast(GameEvent.LOG_IN, loginEmail.text, loginPassword.text);
     }
 
     public void RegisterButtonPressedForRegister()
     {
         if (registerPassword1.text == registerPassword2.text)
         {
-            Messenger<string,string>.Broadcast(GameEvent.REGISTER,registerEmail.text,registerPassword1.text);           
+            Messenger<string, string>.Broadcast(GameEvent.REGISTER, registerEmail.text, registerPassword1.text);
         }
         else
         {
-            Debug.Log("Passwords are not match.");  
+            Debug.Log("Passwords are not match.");
         }
-    
+
+    }
+
+    public void KisaGiris()
+    {
+        Messenger<string,string>.Broadcast(GameEvent.LOG_IN,"mustafa@sepen.com","123sepen");
     }
 
 }

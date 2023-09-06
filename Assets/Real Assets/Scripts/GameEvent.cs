@@ -8,4 +8,5 @@ public static class GameEvent
   public const string REGISTER = "REGISTER";
   public const string REQUEST_USER = "REQUEST_USER";
   public const string SENDING_USER = "SENDING_USER";
+  public const string GENERATE_LETTER = "GENERATE_LETTER";
 }

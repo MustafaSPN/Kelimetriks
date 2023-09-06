@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LetterBackground
+    uniqueID: 2409502967
+    locked: 0
+  - name: Letter
+    uniqueID: 1183237133
+    locked: 0
+  - name: KelimeArkaligi
+    uniqueID: 3948002179
+    locked: 0
