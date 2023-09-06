@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class SortingLayer : MonoBehaviour
 {
-    [SerializeField] private Letters letters;
+   
     void Start()
     {
-        GetComponent<MeshRenderer>().sortingLayerName = "Letter";
-        char harf = letters.GenerateRandomLetter();
-        GetComponent<TMP_Text>().text =harf.ToString();
+        if (tag=="Letter")
+        {
+            GetComponent<MeshRenderer>().sortingLayerName = "Letter";
+
+        }else if (tag == "Word")
+        {
+            GetComponent<MeshRenderer>().sortingLayerName = "Word";
+
+        }
+       
     }
 
    

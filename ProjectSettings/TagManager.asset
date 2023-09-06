@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Word
+  - Letter
   layers:
   - Default
   - TransparentFX
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: KelimeArkaligi
     uniqueID: 3948002179
+    locked: 0
+  - name: Word
+    uniqueID: 3467918397
     locked: 0

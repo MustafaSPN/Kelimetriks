@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2022658970557399893, guid: e430ddbdb9a2e4c63935f06bed1c8650, type: 3}
       propertyPath: m_Name
-      value: Square Variant
+      value: Square
       objectReference: {fileID: 0}
     - target: {fileID: 3375581883054283059, guid: e430ddbdb9a2e4c63935f06bed1c8650, type: 3}
       propertyPath: m_Sprite

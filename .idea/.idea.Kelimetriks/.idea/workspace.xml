@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/AuthManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/AuthManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UIManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UIManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Circle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Circle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Polygon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Polygon.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Square.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +28,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Letters.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomColor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomLetter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/EndScreen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -109,7 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1693913387531</updated>
       <workItem from="1693913388587" duration="9940000" />
-      <workItem from="1693984494733" duration="19433000" />
+      <workItem from="1693984494733" duration="22099000" />
     </task>
     <servers />
   </component>
