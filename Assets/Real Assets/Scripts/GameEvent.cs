@@ -11,4 +11,6 @@ public static class GameEvent
   
   public const string GENERATE_LETTER = "GENERATE_LETTER";
   public const string TOUCHED_LETTER = "TOUCHED_LETTER";
+  public const string CROSS_TOUCHED = "CROSS_TOUCHED";
+  public const string CANCEL_WORD = "CANCEL_WORD";
 }

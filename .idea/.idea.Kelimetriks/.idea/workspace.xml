@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Circle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Circle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Polygon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Polygon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Square.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Square.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +18,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/CrossButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Deneme.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" root0="FORCE_HIGHLIGHTING" />
@@ -114,6 +112,7 @@
       <updated>1693913387531</updated>
       <workItem from="1693913388587" duration="9940000" />
       <workItem from="1693984494733" duration="22099000" />
+      <workItem from="1694013519631" duration="1497000" />
     </task>
     <servers />
   </component>
