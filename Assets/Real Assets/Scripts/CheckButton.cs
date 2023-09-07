@@ -1,12 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrossButton : MonoBehaviour
+public class CheckButton : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        Messenger.Broadcast(GameEvent.CROSS_BUTTON_PRESSED);
+        Messenger.Broadcast(GameEvent.CHECK_BUTTON_PRESSED);
     }
 }

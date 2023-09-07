@@ -8,50 +8,16 @@ using Random = UnityEngine.Random;
 
 public class LetterMovement : MonoBehaviour
 {
-  [SerializeField] private Grid grid;
-  private int randomColumn;
-  private Vector2 randomPosition;
-  private Vector2 targetPosition;
-  private float duration;
-  private static int count;
-  private void Start()
-  {
-      if (count < 12)
-      {
-          MoveFirstLetters();
-      }
+    public void Move(Vector2 startPosition,Vector2 targetPosition)
+    {
+        transform.position = startPosition;
+        float duration = Mathf.Abs(startPosition.y - targetPosition.y) / 6;
+        if (targetPosition.x == 0 || startPosition.x == 0)
+        {
+            duration = 0.2f;
+        }
+        transform.DOMove(targetPosition, duration);
 
-      else
-      {
-          MoveLetter();      
-      }
-    
-    count++;
-  }
+    }
 
-  private void MoveLetter()
-  {
-      while (targetPosition==Vector2.zero)
-      {
-          randomColumn = Random.Range(0, 6);
-          targetPosition = grid.GenerateTargetPosition(randomColumn);
-      }
-     
-      randomPosition = grid.cellPosition[randomColumn][9];
-      transform.position = randomPosition;
-      duration = 8 - ((targetPosition.y - grid.startY) / grid.offset);
-      gameObject.transform.DOMoveY(targetPosition.y, duration/3);
-  }
-
-  private void MoveFirstLetters()
-  {
-
-      randomColumn = (count % 6);
-      Debug.Log(randomColumn);
-      targetPosition = grid.GenerateTargetPosition(randomColumn);
-      randomPosition = grid.cellPosition[randomColumn][9];
-      transform.position = randomPosition;
-      duration = 8 - ((targetPosition.y - grid.startY) / grid.offset);
-      gameObject.transform.DOMoveY(targetPosition.y, duration/3);
-  }
 }

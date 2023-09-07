@@ -8,9 +8,19 @@ public static class GameEvent
   public const string REGISTER = "REGISTER";
   public const string REQUEST_USER = "REQUEST_USER";
   public const string SENDING_USER = "SENDING_USER";
-  
+
   public const string GENERATE_LETTER = "GENERATE_LETTER";
-  public const string TOUCHED_LETTER = "TOUCHED_LETTER";
-  public const string CROSS_TOUCHED = "CROSS_TOUCHED";
-  public const string CANCEL_WORD = "CANCEL_WORD";
+  public const string CLICKED_LETTER = "CLICKED_LETTER";
+  public const string DESTROY_LETTER = "DESTROY_LETTER";
+  public const string RE_POSITION = "RE_POSITION";
+
+  public const string ADD_LETTER_TO_WORD = "ADD_LETTER_TO_WORLD";
+  public const string MOVE_CLICKED_LETTER_HIDE = "MOVE_CLICKED_LETTER_HIDE";
+  public const string MOVE_CLICKED_LETTER_BACK = "MOVE_CLICKED_LETTER_BACK";
+
+  public const string CROSS_BUTTON_PRESSED = "CROSS_BUTTON_PRESSED";
+  public const string CHECK_BUTTON_PRESSED = "CHECK_BUTTON_PRESSED";
+
+  public const string EMPTY_WORD = "EMPTY_WORD";
+  public const string SHAKE_LETTERS = "SHAKE_LETTERS";
 }

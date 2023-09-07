@@ -9,8 +9,10 @@ public class Grid : ScriptableObject
 {
     [Serialize] public Vector2[][] cellPosition;
     [Serialize] public bool[][] cellFullness;
+    
     public int width;
     public int height;
+    
     public float startX = -1.62f;
     public float startY = -4.25f;
     public float offset = 0.65f;
@@ -54,26 +56,22 @@ public class Grid : ScriptableObject
         }   
     }
 
-    public Vector2 GenerateTargetPosition(int target)
+
+    public int[] TargetCell(int column)
     {
-        
-        Vector2 targetPos = Vector2.zero;
-        for (int i = 0; i < cellPosition[target].Length; i++)
+        int[] targetcell = new int[2];
+        for (int i = 0; i < cellPosition[column].Length; i++)
         {
-            if (!cellFullness[target][i])
-            {targetPos = cellPosition[target][i];
-                cellFullness[target][i] = true;
-                Debug.Log($"target: {target},i: {i}");
-                break;
-                
+            if (!cellFullness[column][i])
+            {
+                cellFullness[column][i] = true;
+                targetcell[0] = column;
+                targetcell[1] = i;
+                return targetcell;
+
             }
-            
-                
-            
-           
-            
         }
 
-        return targetPos;
+        return targetcell;
     }
 }

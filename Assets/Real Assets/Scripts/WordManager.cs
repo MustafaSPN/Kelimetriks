@@ -6,31 +6,32 @@ using UnityEngine;
 
 public class WordManager : MonoBehaviour
 {
-    [SerializeField] private TMP_Text wordText;
-    void Start()
+    [SerializeField] public TMP_Text wordText;
+
+    private void Start()
     {
         wordText.text = "";
     }
 
     private void OnEnable()
     {
-        Messenger<string>.AddListener(GameEvent.TOUCHED_LETTER,AddLetterToText);
-        Messenger.AddListener(GameEvent.CROSS_TOUCHED,CancelWord);
+        Messenger<char>.AddListener(GameEvent.ADD_LETTER_TO_WORD,AddLetterToWorld);
+        Messenger.AddListener(GameEvent.EMPTY_WORD,CancelWord);
     }
 
     private void OnDisable()
     {
-        Messenger<string>.RemoveListener(GameEvent.TOUCHED_LETTER,AddLetterToText);
-        Messenger.RemoveListener(GameEvent.CROSS_TOUCHED,CancelWord);
+        Messenger<char>.RemoveListener(GameEvent.ADD_LETTER_TO_WORD,AddLetterToWorld);
+        Messenger.AddListener(GameEvent.EMPTY_WORD,CancelWord);
     }
 
     public void CancelWord()
     {
         wordText.text = "";
-        Messenger.Broadcast(GameEvent.CANCEL_WORD);
     }
-    public void AddLetterToText(string letter)
+
+    public void AddLetterToWorld(char ch)
     {
-        wordText.text += letter;
+        wordText.text += ch.ToString();
     }
 }
