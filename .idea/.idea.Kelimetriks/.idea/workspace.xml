@@ -6,29 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Circle.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Circle.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Polygon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Polygon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Square.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Square.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/LetterObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/LetterObject.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CrossButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CrossButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Deneme.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Deneme.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Grid.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Grid.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letters.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letters.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomLetter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomLetter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Random Letters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Random Letters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +63,8 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -134,7 +125,11 @@
       <workItem from="1693984494733" duration="22099000" />
       <workItem from="1694013519631" duration="1497000" />
       <workItem from="1694023197908" duration="766000" />
-      <workItem from="1694068856208" duration="25353000" />
+      <workItem from="1694068856208" duration="25478000" />
+      <workItem from="1694108204873" duration="412000" />
+      <workItem from="1694157294316" duration="598000" />
+      <workItem from="1694157901997" duration="24250000" />
+      <workItem from="1694414327894" duration="2921000" />
     </task>
     <servers />
   </component>

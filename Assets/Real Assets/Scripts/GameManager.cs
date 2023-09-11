@@ -8,10 +8,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] public Grid grid;
     [SerializeField] public PastelColors randomColor;
+    [SerializeField] public WordData wordAsset;
+    [SerializeField] public RandomLetters randomLetters;
     
     int width = 6;
     int height = 10;
-    public int clickCount = 0;
+    public int clickCount = 0; 
+    public float timer = 5f;
     private void Awake()
     {
         Initializer();
@@ -22,14 +25,23 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GenerateFirstLetters());
     }
 
-   
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer <0)
+        {
+            Messenger.Broadcast(GameEvent.GENERATE_LETTER);
+            timer = 3f;
+        }
+        
+    }
 
     public void Initializer()
     { 
         grid.InitializeGrid(width,height);
         randomColor.InitializeColors();
-        
-
+        wordAsset.InitializeWords();
+        randomLetters.Initiliaze();
     }
 
     public IEnumerator GenerateFirstLetters()
@@ -41,10 +53,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DestroyLetters()
-    {
-        Messenger.Broadcast(GameEvent.DESTROY_LETTER);
-    }
+    
     public void ClickedLetter(char ch,GameObject obj)
     {
         if (clickCount < 10)
@@ -66,13 +75,29 @@ public class GameManager : MonoBehaviour
         clickCount = 0;
     }
 
-    public void CheckButtonPressed()
+    public void CheckWordIsExist(string word)
     {
-        Debug.Log(clickCount);
-        if (clickCount > 2)
+        bool isExist = wordAsset.SearchWord(word);
+        Debug.Log(word);
+        if (isExist)
+        {
+            Debug.Log(isExist);
+
+            Messenger.Broadcast(GameEvent.EMPTY_WORD);
+             Messenger.Broadcast(GameEvent.DESTROY_CORRECT_LETTER);
+        }
+        else
         {
             Messenger.Broadcast(GameEvent.EMPTY_WORD);
-            Messenger.Broadcast(GameEvent.DESTROY_LETTER);
+            Messenger.Broadcast(GameEvent.MOVE_CLICKED_LETTER_BACK);
+        }
+
+    }
+    public void CheckButtonPressed()
+    {
+        if (clickCount > 2)
+        {
+            Messenger.Broadcast(GameEvent.REQUEST_WORD); 
             clickCount = 0;
         }
         else
@@ -88,12 +113,14 @@ public class GameManager : MonoBehaviour
        Messenger<char,GameObject>.AddListener(GameEvent.CLICKED_LETTER,ClickedLetter);
        Messenger.AddListener(GameEvent.CROSS_BUTTON_PRESSED,CrossButtonPressed);
        Messenger.AddListener(GameEvent.CHECK_BUTTON_PRESSED,CheckButtonPressed);
+       Messenger<string>.AddListener(GameEvent.RETURN_WORD,CheckWordIsExist);
     }
 
     private void OnDisable()
     {
-        Messenger<char,GameObject>.AddListener(GameEvent.CLICKED_LETTER,ClickedLetter);
+        Messenger<char,GameObject>.RemoveListener(GameEvent.CLICKED_LETTER,ClickedLetter);
         Messenger.RemoveListener(GameEvent.CROSS_BUTTON_PRESSED,CrossButtonPressed);
         Messenger.RemoveListener(GameEvent.CHECK_BUTTON_PRESSED,CheckButtonPressed);
+        Messenger<string>.RemoveListener(GameEvent.RETURN_WORD,CheckWordIsExist);
     }
 }

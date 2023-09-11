@@ -12,13 +12,15 @@ public class Grid : ScriptableObject
     
     public int width;
     public int height;
-    
-    public float startX = -1.62f;
-    public float startY = -4.25f;
+
+    public float startX;
+    public float startY;
     public float offset = 0.65f;
     
     public void InitializeGrid(int _width, int _height)
     {
+        startX = -1.62f;
+        startY = -2.5f;
         width = _width;
         height = _height;
         cellPosition = new Vector2[width][];

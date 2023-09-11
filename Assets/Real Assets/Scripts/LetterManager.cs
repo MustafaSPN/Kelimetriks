@@ -11,8 +11,8 @@ using UnityEngine.Pool;
 
 public class LetterManager : MonoBehaviour
 {
-    [SerializeField] public GameObject[][] objects;
     [SerializeField] public List<GameObject> selectedLetter;
+    public GameObject[][]GridObjects;
     private Queue<GameObject> queue;
     public int totalLetterCount = 0;
     [Header("Scriptable Objects")]
@@ -27,6 +27,7 @@ public class LetterManager : MonoBehaviour
     
     private void Awake()
     {
+        GridObjects = new GameObject[6][];
         queue = new Queue<GameObject>();
         selectedLetter = new List<GameObject>();
         for (int i = 0; i < 48; i++)
@@ -35,13 +36,17 @@ public class LetterManager : MonoBehaviour
             obj.SetActive(false);
             queue.Enqueue(obj);
         }
-        
-        objects = new GameObject[6][];
+
         for (int i = 0; i < 6; i++)
         {
-            objects[i] = new GameObject[8];
+            GridObjects[i] = new GameObject[8];
+
+            for (int j = 0; j < 8; j++)
+            {
+                GridObjects[i][j] = null;
+            }
         }
-   
+
     }
 
   
@@ -49,9 +54,9 @@ public class LetterManager : MonoBehaviour
     private void OnEnable()
     {
         Messenger.AddListener(GameEvent.GENERATE_LETTER,GenerateLetter);
-        Messenger.AddListener(GameEvent.DESTROY_LETTER,DestroyLetter);
-        Messenger<GameObject>.AddListener(GameEvent.MOVE_CLICKED_LETTER_HIDE,MoveClickedLetter);
-        Messenger.AddListener(GameEvent.MOVE_CLICKED_LETTER_BACK,MoveBackClickedLetter);
+        Messenger.AddListener(GameEvent.DESTROY_CORRECT_LETTER,DestroyCorrectLetter);
+        Messenger<GameObject>.AddListener(GameEvent.MOVE_CLICKED_LETTER_HIDE,HighlightLetter);
+        Messenger.AddListener(GameEvent.MOVE_CLICKED_LETTER_BACK,HighlightBackLetter);
         Messenger<GameObject>.AddListener(GameEvent.SHAKE_LETTERS,ShakeLetters);
         
         
@@ -60,67 +65,98 @@ public class LetterManager : MonoBehaviour
     private void OnDisable()
     {
         Messenger.RemoveListener(GameEvent.GENERATE_LETTER,GenerateLetter);
-        Messenger.RemoveListener(GameEvent.DESTROY_LETTER,DestroyLetter);
-        Messenger<GameObject>.AddListener(GameEvent.MOVE_CLICKED_LETTER_HIDE,MoveClickedLetter);
-        Messenger.AddListener(GameEvent.MOVE_CLICKED_LETTER_BACK,MoveBackClickedLetter);
+        Messenger.RemoveListener(GameEvent.DESTROY_CORRECT_LETTER,DestroyCorrectLetter);
+        Messenger<GameObject>.AddListener(GameEvent.MOVE_CLICKED_LETTER_HIDE,HighlightLetter);
+        Messenger.AddListener(GameEvent.MOVE_CLICKED_LETTER_BACK,HighlightBackLetter);
         Messenger<GameObject>.RemoveListener(GameEvent.SHAKE_LETTERS,ShakeLetters);
     }
 
-    private void MoveBackClickedLetter()
+
+    private void DestroyCorrectLetter()
+    {
+       
+            foreach (var obj in selectedLetter)
+            {
+                Vector2 startPos = obj.GetComponent<Transform>().position;
+                Vector2 targetPos = new Vector2(0, 3f);
+                obj.GetComponent<LetterMovement>().Move(startPos, targetPos, 0.3f);
+            }
+
+
+            
+        
+            DestroyLetter();            
+        
+    }
+
+  
+    private void HighlightBackLetter()
     {
         foreach (var obj in selectedLetter)
         {
-            int a = obj.GetComponent<Letter>().indexCell[0];
-            int b = obj.GetComponent<Letter>().indexCell[1];
-            obj.GetComponent<LetterMovement>().Move(new Vector2(0, 1.54f),grid.cellPosition[a][b]);
-           // selectedLetter.Remove(obj);
+            Color color = obj.GetComponent<SpriteRenderer>().color;
+            color.a = 1f;
+            obj.GetComponent<SpriteRenderer>().color = color;
+            obj.GetComponent<Letter>().SetisClickable(true);
+            ShakeLetters(obj);
         }
 
         selectedLetter.Clear();
     }
-    private void MoveClickedLetter(GameObject obj)
+    private void HighlightLetter(GameObject obj)
     {
-        Vector2 pos = obj.GetComponent<Transform>().position;
-        Vector2 final = new Vector2(0, 1.54f);
-        obj.GetComponent<LetterMovement>().Move(pos,final);
         selectedLetter.Add(obj);
+        Color color = obj.GetComponent<SpriteRenderer>().color;
+        color.a = 0.4f;
+        obj.GetComponent<SpriteRenderer>().color = color;
+        obj.GetComponent<Letter>().SetisClickable(false);
     }
 
     public void DestroyLetter()
     {
-        if (selectedLetter.Count!=0)
-        {
+       
+            int score = 0;
             foreach (var obj in selectedLetter)
             {
-                int[] index = obj.GetComponent<Letter>().GetCellIndex(); 
+                int[] index = obj.GetComponent<Letter>().GetCellIndex();
+                score += obj.GetComponent<Letter>().score;
                 obj.SetActive(false);
                 grid.cellFullness[index[0]][index[1]] = false;
-                objects[index[0]][index[1]] = null;
+                GridObjects[index[0]][index[1]] = null;
                 queue.Enqueue(obj);
-                Reposition(index[0],index[1]);  
+               Reposition(index[0],index[1]);  
             }
+            Messenger<int>.Broadcast(GameEvent.ADD_SCORE,score);
+
             selectedLetter.Clear();
-        }
+            
        
             
     }
-
+    
     public void Reposition(int a,int b)
     {
-        for (int i = b+1; i < 8; i++)
+        for (int i = 1; i < 8; i++)
         {
-            if (objects[a][i] == null)
+            if (grid.cellFullness[a][i] && !grid.cellFullness[a][i-1])
             {
-                break;
+                GridObjects[a][i - 1] = GridObjects[a][i];
+                GridObjects[a][i] = null;
+                grid.cellFullness[a][i - 1] = true;
+                grid.cellFullness[a][i] = false;
+                Vector2 startPos = GridObjects[a][i - 1].GetComponent<Transform>().position;
+                Vector2 targetPos = grid.cellPosition[a][i - 1];
+                GridObjects[a][i-1].GetComponent<LetterMovement>().Move(startPos,targetPos,CalculateMoveDuration(startPos,targetPos) );
+                GridObjects[a][i-1].GetComponent<Letter>().setPosition(a,i-1);
             }
-            objects[a][i - 1] = objects[a][i];
-            objects[a][i] = null;
-            objects[a][i-1].GetComponent<LetterMovement>().Move(grid.cellPosition[a][i],grid.cellPosition[a][i-1]);
-            objects[a][i-1].GetComponent<Letter>().setPosition(a,i-1);
-            grid.cellFullness[a][i] = false;
-            grid.cellFullness[a][i-1] = true;
+            
         }
+        
     }
+        
+             
+       
+    
     public void GenerateLetter()
     {
 
@@ -131,7 +167,6 @@ public class LetterManager : MonoBehaviour
     }
     public void CreateLetter(GameObject obj)
     {
-        
         obj.GetComponent<SpriteRenderer>().sprite = shapes.randomShape();
         obj.GetComponent<SpriteRenderer>().color = randomColor.GenerateRandomColor();
         TMP_Text child = obj.transform.GetChild(0).GetComponent<TMP_Text>();
@@ -139,8 +174,12 @@ public class LetterManager : MonoBehaviour
         child.text = letter.ToString();
         int[] position = new int[2];
         position = SetLetterPosition(obj);
-        objects[position[0]][position[1]] = obj;
-        obj.GetComponent<Letter>().SetLetterValues(position[0],position[1],letter);
+        int score = randomL.GetScore(letter);
+        obj.GetComponent<Letter>().SetLetterValues(position[0],position[1],score,letter);
+        
+            GridObjects[position[0]][position[1]] = obj;
+        
+       
     }
 
     public void ShakeLetters(GameObject obje)
@@ -165,7 +204,7 @@ public class LetterManager : MonoBehaviour
             targetCell = grid.TargetCell(column);
             Vector2 target = grid.cellPosition[targetCell[0]][targetCell[1]];
             Vector2 start = grid.cellPosition[targetCell[0]][9];
-            letter.GetComponent<LetterMovement>().Move(start,target);
+            letter.GetComponent<LetterMovement>().Move(start,target,CalculateMoveDuration(start,target));
             int[] pos = new int[2];
             pos[0] = targetCell[0];
             pos[1] = targetCell[1];
@@ -173,5 +212,10 @@ public class LetterManager : MonoBehaviour
         return pos;
     }
 
+    private float CalculateMoveDuration(Vector2 startPos, Vector2 targetPos)
+    {
+        return Mathf.Abs(startPos.y - targetPos.y) / 6;
+
+    }
     
 }

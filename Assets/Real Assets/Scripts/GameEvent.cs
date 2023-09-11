@@ -11,7 +11,7 @@ public static class GameEvent
 
   public const string GENERATE_LETTER = "GENERATE_LETTER";
   public const string CLICKED_LETTER = "CLICKED_LETTER";
-  public const string DESTROY_LETTER = "DESTROY_LETTER";
+  public const string DESTROY_CORRECT_LETTER = "DESTROY_CORRECT_LETTER";
   public const string RE_POSITION = "RE_POSITION";
 
   public const string ADD_LETTER_TO_WORD = "ADD_LETTER_TO_WORLD";
@@ -23,4 +23,10 @@ public static class GameEvent
 
   public const string EMPTY_WORD = "EMPTY_WORD";
   public const string SHAKE_LETTERS = "SHAKE_LETTERS";
+
+  public const string REQUEST_WORD = "REQUEST_WORD";
+  public const string RETURN_WORD = "RETURN_WORD";
+
+  public const string ADD_SCORE = "ADD_SCORE";
+
 }

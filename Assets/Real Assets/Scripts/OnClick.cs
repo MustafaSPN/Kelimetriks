@@ -11,7 +11,10 @@ public class OnClick : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        char letter = GetComponent<Letter>().letter;
-        Messenger<char,GameObject>.Broadcast(GameEvent.CLICKED_LETTER,letter,this.gameObject);
+        if (GetComponent<Letter>().GetIsClickable())
+        {
+            char letter = GetComponent<Letter>().letter;
+            Messenger<char,GameObject>.Broadcast(GameEvent.CLICKED_LETTER,letter,this.gameObject);   
+        }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5910555620415132974}
   m_Layer: 0
   m_Name: LetterObject
-  m_TagString: Untagged
+  m_TagString: Letter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexCell: 0000000000000000
   letter: 257
+  isClickable: 0
 --- !u!114 &-5813931057975380355
 MonoBehaviour:
   m_ObjectHideFlags: 0

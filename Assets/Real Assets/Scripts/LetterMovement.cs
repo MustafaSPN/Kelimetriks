@@ -8,16 +8,35 @@ using Random = UnityEngine.Random;
 
 public class LetterMovement : MonoBehaviour
 {
-    public void Move(Vector2 startPosition,Vector2 targetPosition)
-    {
-        transform.position = startPosition;
-        float duration = Mathf.Abs(startPosition.y - targetPosition.y) / 6;
-        if (targetPosition.x == 0 || startPosition.x == 0)
-        {
-            duration = 0.2f;
-        }
-        transform.DOMove(targetPosition, duration);
+    private Tween currentTween;
 
+    public void Move(Vector2 startPosition, Vector2 targetPosition,float duration)
+    {
+        SetClickable(false);
+        transform.position = startPosition;
+       
+
+        if (currentTween != null && currentTween.IsActive())
+        {
+            // Eğer bir tween hala çalışıyorsa, ikinci tweeni başlatma
+            currentTween.OnKill(() =>
+            {
+                currentTween = transform.DOMove(targetPosition, duration).OnComplete(() => { SetClickable(true); })
+                    .OnKill(() => { transform.position = targetPosition; });
+            });
+        }
+        else
+        {
+            // Hiçbir tween çalışmıyorsa, doğrudan tween'i başlat
+            currentTween = transform.DOMove(targetPosition, duration).OnComplete(() => { SetClickable(true); })
+                .OnKill(() => { transform.position = targetPosition; });
+
+        }
+    }
+
+    public void SetClickable(bool b)
+    {
+        GetComponent<Letter>().SetisClickable(b);
     }
 
 }
