@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Pastel Colors",menuName = "ScriptableObjcets/PastelColors")]
+[CreateAssetMenu(fileName = "Pastel Colors",menuName = "ScriptableObjects/PastelColors")]
 
 public class PastelColors : ScriptableObject
 {

@@ -6,18 +6,47 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/LetterObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/LetterObject.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Grid.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Grid.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Random Letters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Random Letters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CheckButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CheckButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ColorAssets.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ColorAssets.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CrossButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CrossButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Initializer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Initializer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Letter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManagerEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManagerEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Random Letters.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Random Letters.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomColor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomColor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScoreManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScoreManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Shape.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Shape.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UserEmail.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UserEmail.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/WordManager.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,20 +54,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/CrossButton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Deneme.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/GameEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Grid.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Initializer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterManagerEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/LetterMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Letters.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/OnClick.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomColor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/RandomLetter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/SortingLayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Random Letters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/EndScreen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/QuestionSO.cs" root0="SKIP_HIGHLIGHTING" />
@@ -64,7 +81,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.build.unityPlugin&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -129,7 +146,8 @@
       <workItem from="1694108204873" duration="412000" />
       <workItem from="1694157294316" duration="598000" />
       <workItem from="1694157901997" duration="24250000" />
-      <workItem from="1694414327894" duration="2921000" />
+      <workItem from="1694414327894" duration="22237000" />
+      <workItem from="1694503148143" duration="6805000" />
     </task>
     <servers />
   </component>
@@ -140,5 +158,9 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

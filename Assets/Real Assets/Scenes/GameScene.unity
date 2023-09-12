@@ -909,7 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 11400000, guid: c34d406989e834222ae658c8da935e4b, type: 2}
   randomColor: {fileID: 11400000, guid: 8d548393231204d079c85abbd050bbfb, type: 2}
-  wordAsset: {fileID: 11400000, guid: be88c3717114b4b71bd78bf1db698b8b, type: 2}
+  wordAsset: {fileID: 11400000, guid: ad11b78730ea94047a413685993e3d45, type: 2}
   randomLetters: {fileID: 11400000, guid: 1222bb22e9f3c439698e116bb20b32ae, type: 2}
   clickCount: 0
   timer: 5

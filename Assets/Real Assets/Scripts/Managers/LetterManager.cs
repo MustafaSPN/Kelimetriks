@@ -39,9 +39,9 @@ public class LetterManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            GridObjects[i] = new GameObject[8];
+            GridObjects[i] = new GameObject[9];
 
-            for (int j = 0; j < 8; j++)
+            for (int j = 0; j < 9; j++)
             {
                 GridObjects[i][j] = null;
             }
@@ -83,10 +83,9 @@ public class LetterManager : MonoBehaviour
             }
 
 
-            
-        
-            DestroyLetter();            
-        
+            StartCoroutine(WaitForDestroyLetter());
+
+
     }
 
   
@@ -103,6 +102,13 @@ public class LetterManager : MonoBehaviour
 
         selectedLetter.Clear();
     }
+
+    private IEnumerator WaitForDestroyLetter()
+    {
+        yield return new WaitForSeconds(0.2f);
+        DestroyLetter();            
+
+    }
     private void HighlightLetter(GameObject obj)
     {
         selectedLetter.Add(obj);
@@ -116,42 +122,52 @@ public class LetterManager : MonoBehaviour
     {
        
             int score = 0;
-            foreach (var obj in selectedLetter)
+            foreach (GameObject obj in selectedLetter)
             {
                 int[] index = obj.GetComponent<Letter>().GetCellIndex();
                 score += obj.GetComponent<Letter>().score;
-                obj.SetActive(false);
                 grid.cellFullness[index[0]][index[1]] = false;
                 GridObjects[index[0]][index[1]] = null;
+                obj.GetComponent<Letter>().SetLetterValues(-1,-1,-1,'n');
+                obj.GetComponent<Letter>().isClickable = false;
+                Reposition();
+                obj.SetActive(false);
                 queue.Enqueue(obj);
-               Reposition(index[0],index[1]);  
+
             }
             Messenger<int>.Broadcast(GameEvent.ADD_SCORE,score);
-
+            
             selectedLetter.Clear();
+
             
        
             
     }
-    
-    public void Reposition(int a,int b)
+
+    public void Reposition()
     {
-        for (int i = 1; i < 8; i++)
+        for (int a = 0; a < 6; a++)
         {
-            if (grid.cellFullness[a][i] && !grid.cellFullness[a][i-1])
-            {
-                GridObjects[a][i - 1] = GridObjects[a][i];
-                GridObjects[a][i] = null;
-                grid.cellFullness[a][i - 1] = true;
-                grid.cellFullness[a][i] = false;
-                Vector2 startPos = GridObjects[a][i - 1].GetComponent<Transform>().position;
-                Vector2 targetPos = grid.cellPosition[a][i - 1];
-                GridObjects[a][i-1].GetComponent<LetterMovement>().Move(startPos,targetPos,CalculateMoveDuration(startPos,targetPos) );
-                GridObjects[a][i-1].GetComponent<Letter>().setPosition(a,i-1);
-            }
             
+                for (int i = 1; i < 8; i++)
+                {
+
+                    if (grid.cellFullness[a][i] && !grid.cellFullness[a][i - 1])
+                    {
+                        GridObjects[a][i - 1] = GridObjects[a][i];
+                        GridObjects[a][i] = null;
+                        grid.cellFullness[a][i - 1] = true;
+                        grid.cellFullness[a][i] = false;
+                        Vector2 startPos = GridObjects[a][i - 1].GetComponent<Transform>().position;
+                        Vector2 targetPos = grid.cellPosition[a][i - 1];
+                        GridObjects[a][i - 1].GetComponent<LetterMovement>().Move(startPos, targetPos,
+                            CalculateMoveDuration(startPos, targetPos));
+                        GridObjects[a][i - 1].GetComponent<Letter>().setPosition(a, i - 1);
+                    }
+                
+            }
         }
-        
+
     }
         
              
@@ -170,16 +186,20 @@ public class LetterManager : MonoBehaviour
         obj.GetComponent<SpriteRenderer>().sprite = shapes.randomShape();
         obj.GetComponent<SpriteRenderer>().color = randomColor.GenerateRandomColor();
         TMP_Text child = obj.transform.GetChild(0).GetComponent<TMP_Text>();
-        char letter = randomL.GenerateRandomLetter(); 
+        char letter = randomL.GenerateLetter(); 
         child.text = letter.ToString();
         int[] position = new int[2];
         position = SetLetterPosition(obj);
         int score = randomL.GetScore(letter);
         obj.GetComponent<Letter>().SetLetterValues(position[0],position[1],score,letter);
-        
+        obj.GetComponent<Letter>().isClickable = false;    
             GridObjects[position[0]][position[1]] = obj;
+            if (position[1] == 8)
+            {
+                GameOver();
+                
+            }
         
-       
     }
 
     public void ShakeLetters(GameObject obje)
@@ -209,7 +229,7 @@ public class LetterManager : MonoBehaviour
             pos[0] = targetCell[0];
             pos[1] = targetCell[1];
             totalLetterCount++;
-        return pos;
+            return pos;
     }
 
     private float CalculateMoveDuration(Vector2 startPos, Vector2 targetPos)
@@ -218,4 +238,46 @@ public class LetterManager : MonoBehaviour
 
     }
     
+
+    public void GameOver()
+    {
+        DestroyAllWords();
+
+        ResetGame();
+        Messenger.Broadcast(GameEvent.GAME_OVER);
+    }
+
+    private void ResetGame()
+    {
+        selectedLetter.Clear();
+        grid.setAllEmpty();
+        randomL.Reset();
+        for (int i = 0; i < GridObjects.Length; i++)
+        {
+            for (int j = 0; j < GridObjects[i].Length; j++)
+            {
+                GridObjects[i][j] = null;
+            }
+        }
+    }
+
+    private void DestroyAllWords()
+    {
+        foreach (var objects in GridObjects)
+        {
+            foreach (GameObject obj in objects)
+            {
+                if (obj != null)
+                {
+                    int[] index = obj.GetComponent<Letter>().GetCellIndex();
+                    grid.cellFullness[index[0]][index[1]] = false;
+                    GridObjects[index[0]][index[1]] = null;
+                    obj.GetComponent<Letter>().SetLetterValues(-1, -1, -1, 'n');
+                    obj.GetComponent<Letter>().isClickable = false;
+                    obj.SetActive(false);
+                    queue.Enqueue(obj);
+                }
+            }
+        }
+    }
 }

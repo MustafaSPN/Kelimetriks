@@ -29,4 +29,6 @@ public static class GameEvent
 
   public const string ADD_SCORE = "ADD_SCORE";
 
+  public const string GAME_OVER = "GAME_OVER";
+
 }

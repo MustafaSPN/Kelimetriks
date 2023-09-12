@@ -4,11 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "GridObject",menuName = "ScriptableObjcets/Grid")]
+[CreateAssetMenu(fileName = "GridObject",menuName = "ScriptableObjects/Grid")]
 public class Grid : ScriptableObject
 {
     [Serialize] public Vector2[][] cellPosition;
-    [Serialize] public bool[][] cellFullness;
+    [SerializeField] public bool[][] cellFullness;
     
     public int width;
     public int height;

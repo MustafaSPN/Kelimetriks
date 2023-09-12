@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-[CreateAssetMenu(fileName = "WordAssets",menuName = "ScriptableObjcets/WordsAsset")]
+[CreateAssetMenu(fileName = "WordAssets",menuName = "ScriptableObjects/WordsAsset")]
 
 public class WordData : ScriptableObject
 {
     [SerializeField] public TextAsset textFile;
    // public List<string> allWords = new List<string>();
-    public HashSet<string> allWordsSet = new HashSet<string>();
+    public HashSet<string> allWordsSet = new();
 
     public void InitializeWords()
     {
