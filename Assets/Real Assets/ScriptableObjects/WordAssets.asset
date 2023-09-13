@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b4bcf09f80449e92d90f46b487be5, type: 3}
   m_Name: WordAssets
   m_EditorClassIdentifier: 
-  textFile: {fileID: 4900000, guid: 7f815ccbd2bb2434689fdb184ff04283, type: 3}
+  textFile: {fileID: 4900000, guid: 88fa55b955a694bdb9666f91f1cbe4bf, type: 3}

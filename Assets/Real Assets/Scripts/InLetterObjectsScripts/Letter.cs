@@ -10,6 +10,7 @@ public class Letter : MonoBehaviour
     public char letter;
     public bool isClickable = false;
     public int score;
+    public bool isCrossLetter = false;
 
 
     public void SetLetterValues(int x, int y,int scre ,char lettr)
@@ -27,24 +28,39 @@ public class Letter : MonoBehaviour
 
     public void ResetLetter()
     {
-        indexCell = null;
-        letter = '1';
+        indexCell = new []{-1,-1};
+        letter = 'n';
         score = 0;
+        isCrossLetter = false;
+        isClickable = false;
     }
 
     public void setPosition(int a, int b)
     {
         indexCell[0] = a;
         indexCell[1] = b;
+        if (isCrossLetter && indexCell[1]==0)
+        {
+            Messenger<GameObject>.Broadcast(GameEvent.DESTROY_CROSS_LETTERS,this.gameObject);
+        }
     }
 
     public void SetisClickable(bool b)
     {
-        isClickable = b;
+        if (!isCrossLetter)
+        {
+            isClickable = b;    
+        }
+        
     }
 
     public bool GetIsClickable()
     {
         return isClickable;
+    }
+
+    public void SetisCrossLetter()
+    {
+        isCrossLetter = true;
     }
 }

@@ -7,12 +7,10 @@
     public class Words : ScriptableObject
     {
         [SerializeField] public TextAsset textFile;
-        private HashSet<string> allWords;
         private Dictionary<char, Dictionary<int, HashSet<string>>> WordList;
 
         public void InitializeWords()
         {
-            int count = 0;
             WordList = new Dictionary<char, Dictionary<int, HashSet<string>>>();
 
             if (textFile != null)
@@ -24,7 +22,6 @@
                 foreach (string line in lines)
                 {
 
-                    count++;
                     char firstLetter = line[0];
                     int wordLength = line.Length;
 
@@ -40,10 +37,14 @@
 
                     WordList[firstLetter][wordLength].Add(line);
                 }
-
+                
+                WordList['Ğ'] = new Dictionary<int, HashSet<string>>();
+                for (int i = 0; i < 6; i++)
+                {
+                    WordList['Ğ'][i] = new HashSet<string>();
+                }
             }
 
-            Debug.Log(count);
         }
 
         public bool SearchWord(string word)
@@ -51,8 +52,8 @@
 
             char f = word[0];
             int l = word.Length;
-    bool isExist = WordList[f][l].Contains(word);
-    return isExist;
+             bool isExist = WordList[f][l].Contains(word);
+            return isExist;
         }
 
         public string RandomWord(char a,int b)

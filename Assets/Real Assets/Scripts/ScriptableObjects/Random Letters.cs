@@ -8,11 +8,16 @@ public class RandomLetters : ScriptableObject
 {
     [SerializeField] public char[] letters = new char[29];
 
-    [SerializeField] int[] letterCounts =
+    // [SerializeField] int[] letterCounts =
+    // {
+    //     269131, 34477, 27259, 15299, 97218, 242808, 17243, 20723, 12415, 21985,
+    //     73170, 224346, 2956, 102693, 156027, 119295, 161329, 51005, 11069, 24539,
+    //     144308, 95234, 24754, 94266, 85568, 22222, 20873, 75652, 52811
+    // };
+    [SerializeField] private int[] letterCounts =
     {
-        269131, 34477, 27259, 15299, 97218, 242808, 17243, 20723, 12415, 21985,
-        73170, 224346, 2956, 102693, 156027, 119295, 161329, 51005, 11069, 24539,
-        144308, 95234, 24754, 94266, 85568, 22222, 20873, 75652, 52811
+        25427, 2743, 2181, 806, 4907, 10977, 1645, 1317, 412, 2123, 9599, 3571, 265, 7433,
+        7873, 7109, 9280, 5280, 552, 2419, 7844, 7112, 1030, 6701, 8026, 255, 1694, 4829, 3319
     };
 
     public float[] letterProbabilities;
@@ -92,7 +97,7 @@ public class RandomLetters : ScriptableObject
         if (wordWouldGenerate==string.Empty)
         {
             int randomLetterIndex = Random.Range(0, 29);
-            int randomLength = Random.Range(3, 9);
+            int randomLength = Random.Range(3, 6);
             while (randomLetterIndex==8)
             {
                 randomLetterIndex = Random.Range(0, 29);

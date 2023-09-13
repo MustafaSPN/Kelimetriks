@@ -11,22 +11,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] public PastelColors randomColor;
     [SerializeField] public Words wordAsset;
     [SerializeField] public RandomLetters randomLetters;
+
+    [SerializeField] private GameObject circle1;
+    [SerializeField] private GameObject circle2;
+    [SerializeField] private GameObject circle3;
+    
     
     int width = 6;
     int height = 10;
     public int clickCount = 0; 
     public float timer = 5f;
     public bool isGameContinue;
+    public int wrongAnswers = 0;
     private void Awake()
     {
         Initializer();
-        isGameContinue = true;
+        isGameContinue = false;
     }
 
-    void Start()
-    {
-        StartCoroutine(GenerateFirstLetters());
-    }
 
     private void Update()
     {
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <0)
             {
+                Debug.Log("Game Manager Update");
                 Messenger.Broadcast(GameEvent.GENERATE_LETTER);
                 timer = 3f;
             }   
@@ -53,11 +56,15 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GenerateFirstLetters()
     {
-        for (int i = 0; i < 12; i++)
-        {
-            Messenger.Broadcast(GameEvent.GENERATE_LETTER);
-            yield return new WaitForSeconds(0.08f);
-        }
+        Debug.Log("GenerateFirstLetters");
+       
+
+            for (int i = 0; i < 12; i++)
+            {
+                Messenger.Broadcast(GameEvent.GENERATE_LETTER);
+                yield return new WaitForSeconds(0.08f);
+            }
+        
     }
 
     
@@ -67,7 +74,7 @@ public class GameManager : MonoBehaviour
         {
 
 
-            if (clickCount < 10)
+            if (clickCount < 6)
             {
                 Messenger<char>.Broadcast(GameEvent.ADD_LETTER_TO_WORD, ch);
                 Messenger<GameObject>.Broadcast(GameEvent.MOVE_CLICKED_LETTER_HIDE, obj);
@@ -108,6 +115,36 @@ public class GameManager : MonoBehaviour
             {
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.MOVE_CLICKED_LETTER_BACK);
+
+
+                if (wrongAnswers==3)
+                {
+                    wrongAnswers = 0;
+                    Messenger.Broadcast(GameEvent.CROSS_LETTER_GENERATE);
+                }
+                else
+                {
+                    wrongAnswers++;    
+                }
+                
+                switch (wrongAnswers)
+                {
+                    case 1 : 
+                        circle1.SetActive(true);
+                        break;
+                    case 2 :
+                        circle2.SetActive(true);
+                        break;
+                    case 3:
+                        circle3.SetActive(true);
+                        break;
+                    case 0:
+                        circle1.SetActive(false);
+                        circle2.SetActive(false);
+                        circle3.SetActive(false);
+                        break;
+                }
+                
             }
         }
     }
@@ -126,6 +163,7 @@ public class GameManager : MonoBehaviour
             {
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.MOVE_CLICKED_LETTER_BACK);
+                
                 clickCount = 0;
             }
         }
@@ -134,6 +172,19 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameContinue = false;
+     
+    }
+
+    public void StartGame()
+    {
+        isGameContinue = true;
+        clickCount = 0;
+        wrongAnswers = 0;
+        timer = 5f;
+        circle1.SetActive(false);
+        circle2.SetActive(false);
+        circle3.SetActive(false);
+        StartCoroutine(GenerateFirstLetters());
     }
     private void OnEnable()
     {
@@ -142,14 +193,17 @@ public class GameManager : MonoBehaviour
        Messenger.AddListener(GameEvent.CHECK_BUTTON_PRESSED,CheckButtonPressed);
        Messenger<string>.AddListener(GameEvent.RETURN_WORD,CheckWordIsExist);
        Messenger.AddListener(GameEvent.GAME_OVER,GameOver);
+       Messenger.AddListener(GameEvent.START_GAME,StartGame);
     }
 
     private void OnDisable()
     {
+        
         Messenger<char,GameObject>.RemoveListener(GameEvent.CLICKED_LETTER,ClickedLetter);
         Messenger.RemoveListener(GameEvent.CROSS_BUTTON_PRESSED,CrossButtonPressed);
         Messenger.RemoveListener(GameEvent.CHECK_BUTTON_PRESSED,CheckButtonPressed);
         Messenger<string>.RemoveListener(GameEvent.RETURN_WORD,CheckWordIsExist);
         Messenger.RemoveListener(GameEvent.GAME_OVER,GameOver);
+        Messenger.RemoveListener(GameEvent.START_GAME,StartGame);
     }
 }

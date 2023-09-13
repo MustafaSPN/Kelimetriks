@@ -18,13 +18,15 @@ public class WordManager : MonoBehaviour
         Messenger<char>.AddListener(GameEvent.ADD_LETTER_TO_WORD,AddLetterToWorld);
         Messenger.AddListener(GameEvent.EMPTY_WORD,CancelWord);
         Messenger.AddListener(GameEvent.REQUEST_WORD,ReturnWord);
+        Messenger.AddListener(GameEvent.GAME_OVER,CancelWord);
     }
 
     private void OnDisable()
     {
         Messenger<char>.RemoveListener(GameEvent.ADD_LETTER_TO_WORD,AddLetterToWorld);
-        Messenger.AddListener(GameEvent.EMPTY_WORD,CancelWord);
+        Messenger.RemoveListener(GameEvent.EMPTY_WORD,CancelWord);
         Messenger.RemoveListener(GameEvent.REQUEST_WORD,ReturnWord);
+        Messenger.RemoveListener(GameEvent.GAME_OVER,CancelWord);
     }
 
     public void ReturnWord()

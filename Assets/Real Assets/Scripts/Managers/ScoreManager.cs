@@ -13,11 +13,15 @@ public class ScoreManager : MonoBehaviour
     public int score;
     void Start()
     {
-        score = 0;
-        scoreText.text = score.ToString();
+       ResetScore();
     }
 
+    private void ResetScore()
+    {
+        score = 0;
+        scoreText.text = score.ToString();
 
+    }
     private void AddScore(int scr)
     {
         scoreText.text = score.ToString();
@@ -34,10 +38,12 @@ public class ScoreManager : MonoBehaviour
     private void OnEnable()
     {
         Messenger<int>.AddListener(GameEvent.ADD_SCORE,AddScore);
+        Messenger.AddListener(GameEvent.START_GAME,ResetScore);
     }
 
     private void OnDisable()
     {
         Messenger<int>.RemoveListener(GameEvent.ADD_SCORE,AddScore);
+        Messenger.AddListener(GameEvent.START_GAME,ResetScore);
     }
 }

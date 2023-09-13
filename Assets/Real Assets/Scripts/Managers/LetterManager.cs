@@ -15,6 +15,7 @@ public class LetterManager : MonoBehaviour
     public GameObject[][]GridObjects;
     private Queue<GameObject> queue;
     public int totalLetterCount = 0;
+    public int crossLetter = 0;
     [Header("Scriptable Objects")]
     [SerializeField] public PastelColors randomColor;
     [SerializeField] public Shape shapes;
@@ -23,6 +24,7 @@ public class LetterManager : MonoBehaviour
     
     [Header("Prefabs")]
     [SerializeField] public GameObject prefab;
+
     
     
     private void Awake()
@@ -30,7 +32,7 @@ public class LetterManager : MonoBehaviour
         GridObjects = new GameObject[6][];
         queue = new Queue<GameObject>();
         selectedLetter = new List<GameObject>();
-        for (int i = 0; i < 48; i++)
+        for (int i = 0; i < 49; i++)
         {
             GameObject obj = Instantiate(prefab);
             obj.SetActive(false);
@@ -53,22 +55,28 @@ public class LetterManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Messenger<GameObject>.AddListener(GameEvent.DESTROY_CROSS_LETTERS,StartWaitForDestroyCrossLetter);
+        Messenger.AddListener(GameEvent.CROSS_LETTER_GENERATE,GenerateCrossLetters);
         Messenger.AddListener(GameEvent.GENERATE_LETTER,GenerateLetter);
         Messenger.AddListener(GameEvent.DESTROY_CORRECT_LETTER,DestroyCorrectLetter);
         Messenger<GameObject>.AddListener(GameEvent.MOVE_CLICKED_LETTER_HIDE,HighlightLetter);
         Messenger.AddListener(GameEvent.MOVE_CLICKED_LETTER_BACK,HighlightBackLetter);
-        Messenger<GameObject>.AddListener(GameEvent.SHAKE_LETTERS,ShakeLetters);
+        Messenger<GameObject>.AddListener(GameEvent.SHAKE_LETTERS,ShakeLetters); 
+        Messenger.AddListener(GameEvent.START_GAME,ResetGame);
         
         
     }
 
     private void OnDisable()
     {
+        Messenger<GameObject>.RemoveListener(GameEvent.DESTROY_CROSS_LETTERS,StartWaitForDestroyCrossLetter);
+        Messenger.RemoveListener(GameEvent.CROSS_LETTER_GENERATE,GenerateCrossLetters);
         Messenger.RemoveListener(GameEvent.GENERATE_LETTER,GenerateLetter);
         Messenger.RemoveListener(GameEvent.DESTROY_CORRECT_LETTER,DestroyCorrectLetter);
         Messenger<GameObject>.AddListener(GameEvent.MOVE_CLICKED_LETTER_HIDE,HighlightLetter);
         Messenger.AddListener(GameEvent.MOVE_CLICKED_LETTER_BACK,HighlightBackLetter);
         Messenger<GameObject>.RemoveListener(GameEvent.SHAKE_LETTERS,ShakeLetters);
+        Messenger.RemoveListener(GameEvent.START_GAME,ResetGame);
     }
 
 
@@ -83,7 +91,7 @@ public class LetterManager : MonoBehaviour
             }
 
 
-            StartCoroutine(WaitForDestroyLetter());
+            StartCoroutine(WaitForDestroySelectedLetter());
 
 
     }
@@ -103,10 +111,20 @@ public class LetterManager : MonoBehaviour
         selectedLetter.Clear();
     }
 
-    private IEnumerator WaitForDestroyLetter()
+    public void StartWaitForDestroyCrossLetter(GameObject obj)
+    {
+        StartCoroutine(WaitForDestroyCrossLetter(obj));
+    }
+    private IEnumerator WaitForDestroySelectedLetter()
     {
         yield return new WaitForSeconds(0.2f);
-        DestroyLetter();            
+        DestroySelectedLetters();            
+
+    }
+    private IEnumerator WaitForDestroyCrossLetter(GameObject obj)
+    {
+        yield return new WaitForSeconds(0.2f);
+        DestroyCrossLetters(obj);          
 
     }
     private void HighlightLetter(GameObject obj)
@@ -116,21 +134,42 @@ public class LetterManager : MonoBehaviour
         color.a = 0.4f;
         obj.GetComponent<SpriteRenderer>().color = color;
         obj.GetComponent<Letter>().SetisClickable(false);
-    }
+     }
+    public void DestroyCrossLetters(GameObject obj)
+    {
+        
+                    int[] index = obj.GetComponent<Letter>().GetCellIndex();
+                    int row = index[0];
+                    int i = index[1];
+                    grid.cellFullness[index[0]][index[1]] = false;
+                    GridObjects[index[0]][index[1]] = null;
+                    obj.GetComponent<Letter>().ResetLetter();
+                    obj.GetComponent<Letter>().isClickable = false;
+                    obj.transform.GetChild(0).gameObject.SetActive(true);
+                    obj.transform.GetChild(1).gameObject.SetActive(false);
+                    obj.SetActive(false);
+                    queue.Enqueue(obj);
+                    Reposition(row);
+    
+          
 
-    public void DestroyLetter()
+    }
+     
+    
+    public void DestroySelectedLetters()
     {
        
             int score = 0;
             foreach (GameObject obj in selectedLetter)
             {
                 int[] index = obj.GetComponent<Letter>().GetCellIndex();
+                int row = index[0];
                 score += obj.GetComponent<Letter>().score;
                 grid.cellFullness[index[0]][index[1]] = false;
                 GridObjects[index[0]][index[1]] = null;
-                obj.GetComponent<Letter>().SetLetterValues(-1,-1,-1,'n');
+                obj.GetComponent<Letter>().ResetLetter();
                 obj.GetComponent<Letter>().isClickable = false;
-                Reposition();
+                Reposition(row);
                 obj.SetActive(false);
                 queue.Enqueue(obj);
 
@@ -144,11 +183,8 @@ public class LetterManager : MonoBehaviour
             
     }
 
-    public void Reposition()
+    public void Reposition(int a)
     {
-        for (int a = 0; a < 6; a++)
-        {
-            
                 for (int i = 1; i < 8; i++)
                 {
 
@@ -165,19 +201,18 @@ public class LetterManager : MonoBehaviour
                         GridObjects[a][i - 1].GetComponent<Letter>().setPosition(a, i - 1);
                     }
                 
-            }
-        }
-
-    }
+                }
         
-             
-       
-    
+   
+        
+    }
+
     public void GenerateLetter()
     {
-
         GameObject obj = queue.Dequeue();
         obj.SetActive(true);
+        obj.transform.GetChild(0).gameObject.SetActive(true);
+        obj.transform.GetChild(1).gameObject.SetActive(false);
         CreateLetter(obj);
 
     }
@@ -215,7 +250,11 @@ public class LetterManager : MonoBehaviour
              column = totalLetterCount % 6;
             
         }
-
+        else if (crossLetter<=6 && crossLetter>0)
+        {
+            column = crossLetter % 6;
+            crossLetter--;
+        }
         else
         {
              column = Random.Range(0, 6);
@@ -241,43 +280,63 @@ public class LetterManager : MonoBehaviour
 
     public void GameOver()
     {
-        DestroyAllWords();
-
-        ResetGame();
         Messenger.Broadcast(GameEvent.GAME_OVER);
     }
 
     private void ResetGame()
     {
+        DestroyAllWords();
         selectedLetter.Clear();
         grid.setAllEmpty();
         randomL.Reset();
-        for (int i = 0; i < GridObjects.Length; i++)
-        {
-            for (int j = 0; j < GridObjects[i].Length; j++)
-            {
-                GridObjects[i][j] = null;
-            }
-        }
+        crossLetter = 0;
+        totalLetterCount = 0;
+        
     }
 
+    private void GenerateCrossLetters()
+    {
+        crossLetter = 6;
+        for (int i = 0; i < 6; i++)
+        {
+            GameObject obj = queue.Dequeue();
+            obj.SetActive(true);
+            obj.GetComponent<SpriteRenderer>().sprite = shapes.randomShape();
+            obj.GetComponent<SpriteRenderer>().color = randomColor.GenerateRandomColor();
+            obj.transform.GetChild(0).gameObject.SetActive(false);
+            obj.transform.GetChild(1).gameObject.SetActive(true);
+            int[] position = new int[2];
+            position = SetLetterPosition(obj);
+            obj.GetComponent<Letter>().setPosition(position[0],position[1]);
+            obj.GetComponent<Letter>().SetisCrossLetter();    
+            GridObjects[position[0]][position[1]] = obj;
+            if (position[1] == 8)
+            {
+                GameOver();
+                
+            }
+        }
+        
+    }
+    
+    
     private void DestroyAllWords()
     {
         foreach (var objects in GridObjects)
         {
-            foreach (GameObject obj in objects)
+            foreach (var obj in objects)
             {
                 if (obj != null)
                 {
-                    int[] index = obj.GetComponent<Letter>().GetCellIndex();
-                    grid.cellFullness[index[0]][index[1]] = false;
-                    GridObjects[index[0]][index[1]] = null;
-                    obj.GetComponent<Letter>().SetLetterValues(-1, -1, -1, 'n');
-                    obj.GetComponent<Letter>().isClickable = false;
+                    int[] pos = obj.GetComponent<Letter>().GetCellIndex();
+                    obj.transform.GetChild(1).gameObject.SetActive(false);
                     obj.SetActive(false);
+                    obj.GetComponent<Letter>().ResetLetter();
                     queue.Enqueue(obj);
+                    objects[pos[1]] = null;
                 }
             }
+            
         }
     }
 }
