@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public TMP_InputField loginPassword;
 
     public TMP_InputField registerEmail;
+    public TMP_InputField registerName;
     public TMP_InputField registerPassword1;
     public TMP_InputField registerPassword2;
 
@@ -25,8 +26,9 @@ public class UIManager : MonoBehaviour
     private string email;
     private string password;
     private int todayInt;
-    private void Start()
-    { today = DateTime.Now;
+    private TMP_InputField[] inputs;
+    private void Start() { 
+        today = DateTime.Now;
         todayInt = today.Year * 10000 + today.Month * 100 + today.Day;
         if (Load())
         {
@@ -42,7 +44,12 @@ public class UIManager : MonoBehaviour
             GamePanel.SetActive(false);
         }
 
-        
+        inputs = new[]
+        {
+            loginEmail, loginPassword, registerEmail, registerName, registerPassword1, registerPassword2
+        };
+
+
     }
 
     public void LoginButtonWelcomePressed()
@@ -62,6 +69,11 @@ public class UIManager : MonoBehaviour
         welcomePanel.SetActive(true);
         registerPanel.SetActive(false);
         loginPanel.SetActive(false);
+        foreach (var input in inputs)
+        {
+            input.text = string.Empty;
+        }
+        
     }
 
     public void LoginButtonPressedForLogin()
@@ -105,6 +117,7 @@ public class UIManager : MonoBehaviour
         if (registerPassword1.text == registerPassword2.text)
         {
             Messenger<string, string>.Broadcast(GameEvent.REGISTER, registerEmail.text, registerPassword1.text);
+            Messenger<string>.Broadcast(GameEvent.SENDING_USERNAME,registerName.text);
         }
         else
         {
@@ -130,4 +143,13 @@ public class UIManager : MonoBehaviour
         GamePanel.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        Messenger.AddListener(GameEvent.REGISTER_COMPLATED,BackButtonPressed);
+    }
+
+    private void OnDisable()
+    {
+        Messenger.RemoveListener(GameEvent.REGISTER_COMPLATED,BackButtonPressed);
+    }
 }

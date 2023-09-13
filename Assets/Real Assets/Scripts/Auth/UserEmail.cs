@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Auth;
 using TMPro;
 using UnityEngine;
 
@@ -15,17 +16,17 @@ public class UserEmail : MonoBehaviour
 
     private void OnEnable()
     {
-        Messenger<string>.AddListener(GameEvent.SENDING_USER,SetText);
+        Messenger<FirebaseUser>.AddListener(GameEvent.SENDING_USER,SetText);
     }
 
     private void OnDisable()
     {
-        Messenger<string>.RemoveListener(GameEvent.SENDING_USER,SetText);
+        Messenger<FirebaseUser>.RemoveListener(GameEvent.SENDING_USER,SetText);
     }
 
 
-    private void SetText(string text)
+    private void SetText(FirebaseUser user)
     {
-        GetComponent<TextMeshProUGUI>().text = text;
+        GetComponent<TextMeshProUGUI>().text = user.Email;
     }
 }

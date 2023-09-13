@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "999554746956",
+    "firebase_url": "https://kelimetriks-default-rtdb.firebaseio.com",
     "project_id": "kelimetriks",
     "storage_bucket": "kelimetriks.appspot.com"
   },
@@ -14,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "999554746956-8og44be9uq6ijge0goi37mbdqlbeuta6.apps.googleusercontent.com",
+          "client_id": "999554746956-tu311arrh83j10pm1gasm6gd28n9avuj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -50,7 +51,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "999554746956-8og44be9uq6ijge0goi37mbdqlbeuta6.apps.googleusercontent.com",
+          "client_id": "999554746956-tu311arrh83j10pm1gasm6gd28n9avuj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
