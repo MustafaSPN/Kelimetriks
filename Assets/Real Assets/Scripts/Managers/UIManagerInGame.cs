@@ -2,14 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManagerInGame : MonoBehaviour
 {
     [SerializeField] private GameObject holder;
-    [SerializeField] private TMP_Text leaderboardText;
-    [SerializeField] private LeaderboardDatabase leaderboardData;
     [SerializeField] private GameObject leaderboardPopup;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject parent;
+    [SerializeField] private LeaderboardDatabase leaderboardData;
+    private List<GameObject> leaderboardTexts = new List<GameObject>();
+
+    private void Start()
+    {
+        InitializeLeaderboardText();
+    }
+
     public void StartGame()
     {
         Messenger.Broadcast(GameEvent.START_GAME);
@@ -21,15 +30,28 @@ public class UIManagerInGame : MonoBehaviour
         holder.SetActive(true);
     }
 
-    public void SetLeaderboardText()
+    public void InitializeLeaderboardText()
     {
-        string text = string.Empty;
-        for (int i = 0; i < leaderboardData.leaderboardInfo.Count; i++)
+        for (int i = 0; i < 20; i++)
         {
-            text += $"{i+1}. {leaderboardData.leaderboardInfo[i].name} ---> {leaderboardData.leaderboardInfo[i].score} \n";
+            GameObject pre = Instantiate(prefab,parent.transform);
+            pre.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -100 * i);
+            leaderboardTexts.Add(pre);
         }
 
-        leaderboardText.text = text;
+        parent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, leaderboardTexts.Count*100);
+    }
+    
+    
+    public void SetLeaderboardText()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            leaderboardTexts[i].transform.GetChild(0).GetComponent<TMP_Text>().text =(i+1)+ "." + leaderboardData.leaderboardInfo[i].name+":";
+            leaderboardTexts[i].transform.GetChild(1).GetComponent<TMP_Text>().text =
+                leaderboardData.leaderboardInfo[i].score.ToString();
+        }
+       
     }
 
     public void PressedLeaderboardButton()
