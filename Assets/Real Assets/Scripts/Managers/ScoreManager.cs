@@ -35,15 +35,25 @@ public class ScoreManager : MonoBehaviour
         });
         score += scr;
     }
+
+    private void SendScoreToLeaderboard()
+    {
+        Messenger<int>.Broadcast(GameEvent.SEND_SCORE_TO_LEADERBOARD,score);
+    }
+    
+    
+    
     private void OnEnable()
     {
         Messenger<int>.AddListener(GameEvent.ADD_SCORE,AddScore);
         Messenger.AddListener(GameEvent.START_GAME,ResetScore);
+        Messenger.AddListener(GameEvent.GAME_OVER,SendScoreToLeaderboard);
     }
 
     private void OnDisable()
     {
         Messenger<int>.RemoveListener(GameEvent.ADD_SCORE,AddScore);
-        Messenger.AddListener(GameEvent.START_GAME,ResetScore);
+        Messenger.RemoveListener(GameEvent.START_GAME,ResetScore);
+        Messenger.RemoveListener(GameEvent.GAME_OVER,SendScoreToLeaderboard);
     }
 }

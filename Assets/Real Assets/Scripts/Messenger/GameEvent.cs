@@ -37,4 +37,7 @@ public static class GameEvent
   public const string CROSS_LETTER_GENERATE = "CROSS_LETTER_GENERATE";
   public const string DESTROY_CROSS_LETTERS = "DESTROY_CROSS_LETTERS";
 
+
+  public const string SET_LEADERBOARD_TEXT = "SET_LEADERBOARD_TEXT";
+  public const string SEND_SCORE_TO_LEADERBOARD = "SEND_SCORE_TO_LEADERBOARD";
 }
