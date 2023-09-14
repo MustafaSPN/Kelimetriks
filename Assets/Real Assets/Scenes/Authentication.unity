@@ -6159,6 +6159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependencyStatus: 0
+  scriptableUser: {fileID: 11400000, guid: 57a95a4f9a05740c9acd7f8cc876c9de, type: 2}
 --- !u!4 &1860087063
 Transform:
   m_ObjectHideFlags: 0
@@ -6597,7 +6598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1890000237
 MonoBehaviour:
   m_ObjectHideFlags: 0

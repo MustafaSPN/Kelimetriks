@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase;
+using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LeaderboardManager : MonoBehaviour
 {
@@ -13,29 +15,25 @@ public class LeaderboardManager : MonoBehaviour
     private DatabaseReference usernameReference;
     [SerializeField] private LeaderboardDatabase leaderboard;
     public List<PlayerData> LeaderboardData;
-    private FirebaseUser user;
     private string username;
+    [SerializeField]private AuthUser scriptableUser;
     private void Start()
     {
         leaderboard.ClearOldData();
         leaderboardReference = FirebaseDatabase.DefaultInstance.GetReference("leaderboard");
         leaderboardReference.ValueChanged += HandleValueChange;
         GetLeaderboard();
-        Messenger.Broadcast(GameEvent.REQUEST_USER);
-        
-        
-        
-
+       GetUsername();
     }
 
     public void HandleValueChange(object a,ValueChangedEventArgs b)
     {
      GetLeaderboard();   
     }
-    
+
     public void GetLeaderboard()
     {
-        leaderboardReference.GetValueAsync().ContinueWith(task =>
+        leaderboardReference.GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {
@@ -44,80 +42,81 @@ public class LeaderboardManager : MonoBehaviour
                 DataSnapshot snapshot = task.Result;
                 for (int i = 0; i < 20; i++)
                 {
-                    string name = snapshot.Child("names").Child(i.ToString()).Value.ToString();
-                    int score = int.Parse(snapshot.Child("scores").Child(i.ToString()).Value.ToString());
+                    string name = snapshot.Child(i.ToString()).Child("name").Value.ToString();
+                    int score = int.Parse(snapshot.Child(i.ToString()).Child("score").Value.ToString());
                     PlayerData obj = new PlayerData(name, score);
                     LeaderboardData.Add(obj);
-
                 }
+
                 leaderboard.AddUserData(LeaderboardData);
                 Messenger.Broadcast(GameEvent.SET_LEADERBOARD_TEXT);
             }
         });
-    
 
-    }
+
+        }
+    
 
     public void GetUsername()
     {
         usernameReference = FirebaseDatabase.DefaultInstance.RootReference;
-        usernameReference.Child("users").Child(user.UserId).GetValueAsync().ContinueWith(task =>
+        usernameReference.Child("users").Child(scriptableUser.GetUserId()).GetValueAsync().ContinueWith(task =>
         {
             if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                Debug.Log(snapshot.Value);
-                
+                username = snapshot.Value.ToString();
             }
         });
-
+    
     }
 
-     private void CheckLeaderboard(int scr)
+    private void CheckLeaderboard(int scr)
     {
-    //     int index = -1;
-    //     for (int i = 0; i < LeaderboardData.Count; i++)
-    //     {
-    //         if (LeaderboardData[i].score < scr )
-    //         {
-    //             index = i;
-    //             break;
-    //         }
-    //     }
-    //
-    //     if (index>0)
-    //     {
-    //         string tmpName = LeaderboardData[index].name;
-    //         int tmpScore = LeaderboardData[index].score;
-    //         LeaderboardData[index].name = 
-    //         
-    //         for (int i = 0; i < UPPER; i++)
-    //         {
-    //             
-    //         }
-    //         
-    //
-    //
-    //     }
-    //     
-    //     
-     }
+        int index = -1;
+        for (int i = 0; i < LeaderboardData.Count; i++)
+        {
+            if (LeaderboardData[i].score < scr)
+            {
+                index = i;
+                break;
+            }
+        }
+    
+        if (index>-1)
+        
+        {
+            for (int i = 1; i < LeaderboardData.Count-index; i++)
+        {
+            LeaderboardData[LeaderboardData.Count - i ].name = LeaderboardData[LeaderboardData.Count - i-1].name;
+            LeaderboardData[LeaderboardData.Count - i ].score = LeaderboardData[LeaderboardData.Count - i-1].score;
+    
+        }
+        LeaderboardData[index].name = username;
+        LeaderboardData[index].score = scr;
 
-    private void SetUser(FirebaseUser u)
-    {
-        user = u;
-        GetUsername();
+        WriteToFirebaseLeaderboardData();
+        }
     }
+
+    private void WriteToFirebaseLeaderboardData()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            string json = JsonUtility.ToJson(LeaderboardData[i]);
+            leaderboardReference.Child(i.ToString()).SetRawJsonValueAsync(json);
+        }
+    }
+
+
     private void OnEnable()
     {
         Messenger<int>.AddListener(GameEvent.SEND_SCORE_TO_LEADERBOARD,CheckLeaderboard);
-        Messenger<FirebaseUser>.AddListener(GameEvent.SENDING_USER,SetUser);
 
     }
 
     private void OnDisable()
     {
         Messenger<int>.RemoveListener(GameEvent.SEND_SCORE_TO_LEADERBOARD,CheckLeaderboard);
-        Messenger<FirebaseUser>.RemoveListener(GameEvent.SENDING_USER,SetUser);
     }
 }

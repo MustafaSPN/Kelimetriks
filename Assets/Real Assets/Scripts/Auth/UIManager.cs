@@ -100,7 +100,6 @@ public class UIManager : MonoBehaviour
         email = PlayerPrefs.GetString("email");
         password = PlayerPrefs.GetString("password");
         int exdate = PlayerPrefs.GetInt("ExDate");
-        Debug.Log($"today {todayInt}, ex {exdate} ");
         if (todayInt > exdate)
         {
             Debug.Log("false");
@@ -108,7 +107,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("true");
+            Debug.Log($"{email},{password}");
             return true;
         }
     }
@@ -116,8 +115,7 @@ public class UIManager : MonoBehaviour
     {
         if (registerPassword1.text == registerPassword2.text)
         {
-            Messenger<string, string>.Broadcast(GameEvent.REGISTER, registerEmail.text, registerPassword1.text);
-            Messenger<string>.Broadcast(GameEvent.SENDING_USERNAME,registerName.text);
+            Messenger<string, string,string>.Broadcast(GameEvent.REGISTER, registerEmail.text, registerPassword1.text,registerName.text);
         }
         else
         {
@@ -125,7 +123,7 @@ public class UIManager : MonoBehaviour
         }
 
     }
-
+    
     public void KisaGiris()
     {
         Messenger<string,string>.Broadcast(GameEvent.LOG_IN,"mustafa@sepen.com","123sepen");

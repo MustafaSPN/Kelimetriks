@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
 using UnityEngine;
@@ -8,20 +9,28 @@ using UnityEngine;
 public class UsernameData : MonoBehaviour
 {
     private DatabaseReference reference;
-    private string username;
-    
+
     void Start()
     {
-        reference = FirebaseDatabase.DefaultInstance.RootReference;
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+            FirebaseApp app = FirebaseApp.DefaultInstance;
+            Debug.Log("Setting up Firebase Auth.");
+            reference = FirebaseDatabase.DefaultInstance.RootReference;
+        });
+
     }
+
+    private string username;
 
     private void SetUsername(string usern)
     {
         username = usern;
+        Debug.Log($"{username}");
     }
 
     private void SendUserToDatabase(FirebaseUser user)
     {
+        Debug.Log($"{user.UserId}");
         reference.Child("users").Child(user.UserId).SetValueAsync(username);
 
     }

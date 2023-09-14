@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <0)
             {
-                Debug.Log("Game Manager Update");
                 Messenger.Broadcast(GameEvent.GENERATE_LETTER);
                 timer = 3f;
             }   
@@ -56,7 +55,6 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GenerateFirstLetters()
     {
-        Debug.Log("GenerateFirstLetters");
        
 
             for (int i = 0; i < 12; i++)

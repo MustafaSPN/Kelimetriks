@@ -37,7 +37,8 @@ public class ScoreManager : MonoBehaviour
     }
 
     private void SendScoreToLeaderboard()
-    {
+    {        Debug.Log("score sent to leaderboard");
+
         Messenger<int>.Broadcast(GameEvent.SEND_SCORE_TO_LEADERBOARD,score);
     }
     
