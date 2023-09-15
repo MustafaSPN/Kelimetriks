@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/RowObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/RowObject.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/Authentication.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/Authentication.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/AuthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/AuthManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/UIManagerInGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/UIManagerInGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +123,8 @@
       <workItem from="1694414327894" duration="22237000" />
       <workItem from="1694503148143" duration="20402000" />
       <workItem from="1694589603234" duration="2103000" />
-      <workItem from="1694683615562" duration="16826000" />
+      <workItem from="1694683615562" duration="17436000" />
+      <workItem from="1694767210857" duration="582000" />
     </task>
     <servers />
   </component>

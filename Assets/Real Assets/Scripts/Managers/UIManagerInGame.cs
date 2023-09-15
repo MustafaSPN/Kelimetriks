@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManagerInGame : MonoBehaviour
 {
@@ -53,6 +54,14 @@ public class UIManagerInGame : MonoBehaviour
         }
        
     }
+
+    public void LogoutButton()
+    {
+        Messenger.Broadcast(GameEvent.LOG_OUT);
+        SceneManager.LoadScene(0);
+    }
+    
+    
 
     public void PressedLeaderboardButton()
     {

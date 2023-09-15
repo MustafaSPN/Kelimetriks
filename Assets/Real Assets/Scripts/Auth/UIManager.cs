@@ -35,13 +35,11 @@ public class UIManager : MonoBehaviour
             welcomePanel.SetActive(false);
             loginPanel.SetActive(false);
             registerPanel.SetActive(false);
-            GamePanel.SetActive(true);
         }else
         {
             welcomePanel.SetActive(true);
             loginPanel.SetActive(false);
             registerPanel.SetActive(false);
-            GamePanel.SetActive(false);
         }
 
         inputs = new[]
@@ -107,7 +105,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"{email},{password}");
+            StartCoroutine(AutoLogIn());
             return true;
         }
     }
@@ -123,10 +121,11 @@ public class UIManager : MonoBehaviour
         }
 
     }
-    
-    public void KisaGiris()
+
+    public IEnumerator AutoLogIn()
     {
-        Messenger<string,string>.Broadcast(GameEvent.LOG_IN,"mustafa@sepen.com","123sepen");
+        yield return new WaitForSeconds(0.2f);
+        Messenger<string,string>.Broadcast(GameEvent.LOG_IN,email,password);
     }
 
     public void GoGameButton()

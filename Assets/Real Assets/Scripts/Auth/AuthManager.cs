@@ -107,17 +107,26 @@ public class AuthManager : MonoBehaviour
         
     }
 
+    public void LogOut()
+    {
+        auth.SignOut();
+        PlayerPrefs.SetString("email","");
+        PlayerPrefs.SetString("password","");
+        PlayerPrefs.SetInt("ExDate",0);
+    }
 
     private void OnEnable()
     {
         Messenger<string, string>.AddListener(GameEvent.LOG_IN, Login);
         Messenger<string, string,string>.AddListener(GameEvent.REGISTER, Register);
+        Messenger.AddListener(GameEvent.LOG_OUT,LogOut);
     }
 
     private void OnDisable()
     {
         Messenger<string, string>.RemoveListener(GameEvent.LOG_IN, Login);
         Messenger<string, string,string>.RemoveListener(GameEvent.REGISTER, Register);
+        Messenger.RemoveListener(GameEvent.LOG_OUT,LogOut);
     }
     
     private void GoGameScene()
