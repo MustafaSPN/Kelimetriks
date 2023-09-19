@@ -49,6 +49,9 @@ TagManager:
   - name: Letter
     uniqueID: 1183237133
     locked: 0
+  - name: joker effect
+    uniqueID: 1121003035
+    locked: 0
   - name: KelimeArkaligi
     uniqueID: 3948002179
     locked: 0

@@ -11,6 +11,7 @@ public class Letter : MonoBehaviour
     public bool isClickable = false;
     public int score;
     public bool isCrossLetter = false;
+    public bool isJokerLetter = false;
 
 
     public void SetLetterValues(int x, int y,int scre ,char lettr)
@@ -32,6 +33,7 @@ public class Letter : MonoBehaviour
         letter = 'n';
         score = 0;
         isCrossLetter = false;
+        isJokerLetter = false;
         isClickable = false;
     }
 
@@ -62,5 +64,15 @@ public class Letter : MonoBehaviour
     public void SetisCrossLetter()
     {
         isCrossLetter = true;
+    }
+
+    public void SetisJokerLetter()
+    {
+        isJokerLetter = true;
+    }
+
+    public bool GetisJokerLetter()
+    {
+        return isJokerLetter;
     }
 }

@@ -12,9 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Words wordAsset;
     [SerializeField] public RandomLetters randomLetters;
 
-    [SerializeField] private GameObject circle1;
-    [SerializeField] private GameObject circle2;
-    [SerializeField] private GameObject circle3;
+    [SerializeField] private GameObject redCircle1;
+    [SerializeField] private GameObject redCircle2;
+    [SerializeField] private GameObject redCircle3;
+    
+    [SerializeField] private GameObject greenCircle1;
+    [SerializeField] private GameObject greenCircle2;
+    [SerializeField] private GameObject greenCircle3;
     
     
     int width = 6;
@@ -120,41 +124,67 @@ public class GameManager : MonoBehaviour
             {
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.DESTROY_CORRECT_LETTER);
+                wrongAnswers++;
+                if (wrongAnswers==4)
+                {
+                    Messenger.Broadcast(GameEvent.JOKER_LETTER_GENERATE);
+                    wrongAnswers = 0;
+                }
             }
             else
             {
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.MOVE_CLICKED_LETTER_BACK);
 
+                if (wrongAnswers>0)
+                {
+                    wrongAnswers = 0;
+                }
+                
+                else if (wrongAnswers<=0)
+                {
+                    wrongAnswers--;
+                    
+                }
 
-                if (wrongAnswers==3)
+                if (wrongAnswers == -4)
                 {
                     wrongAnswers = 0;
                     Messenger.Broadcast(GameEvent.CROSS_LETTER_GENERATE);
                 }
-                else
-                {
-                    wrongAnswers++;    
-                }
                 
-                switch (wrongAnswers)
-                {
-                    case 1 : 
-                        circle1.SetActive(true);
-                        break;
-                    case 2 :
-                        circle2.SetActive(true);
-                        break;
-                    case 3:
-                        circle3.SetActive(true);
-                        break;
-                    case 0:
-                        circle1.SetActive(false);
-                        circle2.SetActive(false);
-                        circle3.SetActive(false);
-                        break;
-                }
                 
+              
+                
+            }
+            switch (wrongAnswers)
+            {
+                case -1 : 
+                    redCircle1.SetActive(true);
+                    break;
+                case -2 :
+                    redCircle2.SetActive(true);
+                    break;
+                case -3:
+                    redCircle3.SetActive(true);
+                    break;
+                case 1 : 
+                    greenCircle1.SetActive(true);
+                    break;
+                case 2 :
+                    greenCircle2.SetActive(true);
+                    break;
+                case 3:
+                    greenCircle3.SetActive(true);
+                    break;
+                case 0:
+                    redCircle1.SetActive(false);
+                    redCircle2.SetActive(false);
+                    redCircle3.SetActive(false);
+                    greenCircle1.SetActive(false);
+                    greenCircle2.SetActive(false);
+                    greenCircle3.SetActive(false);
+                    break;
             }
         }
     }
@@ -192,9 +222,12 @@ public class GameManager : MonoBehaviour
         wrongAnswers = 0;
         timer = 5f;
         score = 0;
-        circle1.SetActive(false);
-        circle2.SetActive(false);
-        circle3.SetActive(false);
+        redCircle1.SetActive(false);
+        redCircle2.SetActive(false);
+        redCircle3.SetActive(false);
+        greenCircle1.SetActive(false);
+        greenCircle2.SetActive(false);
+        greenCircle3.SetActive(false);
         StartCoroutine(GenerateFirstLetters());
     }
 

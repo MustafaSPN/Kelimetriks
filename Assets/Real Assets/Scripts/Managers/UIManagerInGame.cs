@@ -16,7 +16,7 @@ public class UIManagerInGame : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     private List<GameObject> leaderboardTexts = new List<GameObject>();
-
+    public bool isInGame = false;
     private void Start()
     {
         InitializeLeaderboardText();
@@ -26,11 +26,13 @@ public class UIManagerInGame : MonoBehaviour
     {
         Messenger.Broadcast(GameEvent.START_GAME);
         holder.SetActive(false);
+        isInGame = true;
     }
 
     public void GameOver()
     {
         holder.SetActive(true);
+        isInGame = false;
     }
 
     public void InitializeLeaderboardText()
@@ -42,7 +44,7 @@ public class UIManagerInGame : MonoBehaviour
             leaderboardTexts.Add(pre);
         }
 
-        parent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, leaderboardTexts.Count*100);
+        parent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, leaderboardTexts.Count*100 + 100);
     }
     
     
@@ -73,7 +75,11 @@ public class UIManagerInGame : MonoBehaviour
     }
     public void OpenPausePanel()
     {
-        pausePanel.gameObject.SetActive(true);
+        if (isInGame)
+        {
+            pausePanel.gameObject.SetActive(true);    
+        }
+        
     }
 
     public void ClosePausePanel()
@@ -85,6 +91,7 @@ public class UIManagerInGame : MonoBehaviour
     {
         Messenger.Broadcast(GameEvent.GAME_OVER);
         pausePanel.SetActive(false);
+        isInGame = false;
     }
     
     

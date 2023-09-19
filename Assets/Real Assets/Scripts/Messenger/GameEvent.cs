@@ -15,6 +15,7 @@ public static class GameEvent
   public const string GENERATE_LETTER = "GENERATE_LETTER";
   public const string CLICKED_LETTER = "CLICKED_LETTER";
   public const string DESTROY_CORRECT_LETTER = "DESTROY_CORRECT_LETTER";
+  public const string CLICKED_JOKERLETTER = "CLICKED_JOKERLETTER";
   public const string RE_POSITION = "RE_POSITION";
 
   public const string ADD_LETTER_TO_WORD = "ADD_LETTER_TO_WORLD";
@@ -39,7 +40,7 @@ public static class GameEvent
   
   public const string CROSS_LETTER_GENERATE = "CROSS_LETTER_GENERATE";
   public const string DESTROY_CROSS_LETTERS = "DESTROY_CROSS_LETTERS";
-
+  public const string JOKER_LETTER_GENERATE = "JOKER_LETTER_GENERATE";
 
   public const string SET_LEADERBOARD_TEXT = "SET_LEADERBOARD_TEXT";
   public const string SEND_SCORE_TO_LEADERBOARD = "SEND_SCORE_TO_LEADERBOARD";
