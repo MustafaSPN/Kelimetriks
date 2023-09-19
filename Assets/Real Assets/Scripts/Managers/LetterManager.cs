@@ -318,8 +318,12 @@ using UnityEngine.Pool;
                 obj.transform.GetChild(1).gameObject.SetActive(true);
                 int[] position = new int[2];
                 position = SetLetterPosition(obj);
-                obj.GetComponent<Letter>().setPosition(position[0], position[1]);
                 obj.GetComponent<Letter>().SetisCrossLetter();
+                obj.GetComponent<Letter>().setPosition(position[0], position[1]);
+                if (position[1]==0)
+                {
+                    StartCoroutine(WaitForFirstDestroyCrossLetter(obj));
+                }
                 GridObjects[position[0]][position[1]] = obj;
                 if (position[1] == 8)
                 {
@@ -329,7 +333,13 @@ using UnityEngine.Pool;
             }
 
         }
+        private IEnumerator WaitForFirstDestroyCrossLetter(GameObject obj)
+        {
+            yield return new WaitForSeconds(2f);
+            DestroyCrossLetters(obj);
 
+        }
+        
         private void GenerateJokerLetter()
         {
             GameObject obj = Instantiate(jokerPrefab);

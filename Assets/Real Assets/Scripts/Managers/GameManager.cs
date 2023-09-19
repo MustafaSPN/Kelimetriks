@@ -130,6 +130,11 @@ public class GameManager : MonoBehaviour
                     Messenger.Broadcast(GameEvent.JOKER_LETTER_GENERATE);
                     wrongAnswers = 0;
                 }
+                else if (wrongAnswers <0)
+                {
+                    wrongAnswers = 0;
+                }
+            
             }
             else
             {

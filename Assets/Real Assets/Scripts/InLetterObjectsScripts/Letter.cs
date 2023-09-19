@@ -20,6 +20,12 @@ public class Letter : MonoBehaviour
         indexCell[1] = y;
         letter = lettr;
         score = scre;
+        
+        if (isCrossLetter && indexCell[1]==0)
+        {
+            Messenger<GameObject>.Broadcast(GameEvent.DESTROY_CROSS_LETTERS,this.gameObject);
+        }
+        
     }
 
     public int[] GetCellIndex()
