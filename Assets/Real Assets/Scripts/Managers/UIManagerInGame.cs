@@ -13,6 +13,7 @@ public class UIManagerInGame : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject parent;
     [SerializeField] private LeaderboardDatabase leaderboardData;
+    [SerializeField] private GameObject pausePanel;
     private List<GameObject> leaderboardTexts = new List<GameObject>();
 
     private void Start()
@@ -60,9 +61,25 @@ public class UIManagerInGame : MonoBehaviour
         Messenger.Broadcast(GameEvent.LOG_OUT);
         SceneManager.LoadScene(0);
     }
-    
-    
 
+
+    public void OpenPausePanel()
+    {
+        pausePanel.gameObject.SetActive(true);
+    }
+
+    public void ClosePausePanel()
+    {
+        pausePanel.gameObject.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        Messenger.Broadcast(GameEvent.GAME_OVER);
+        pausePanel.SetActive(false);
+    }
+    
+    
     public void PressedLeaderboardButton()
     {
         leaderboardPopup.SetActive(true);
@@ -74,12 +91,14 @@ public class UIManagerInGame : MonoBehaviour
     }
     private void OnEnable()
     {
+        Messenger.AddListener(GameEvent.PAUSE_GAME,OpenPausePanel);
         Messenger.AddListener(GameEvent.GAME_OVER,GameOver);
         Messenger.AddListener(GameEvent.SET_LEADERBOARD_TEXT,SetLeaderboardText);
     }
 
     private void OnDisable()
     {
+        Messenger.RemoveListener(GameEvent.PAUSE_GAME,OpenPausePanel);
         Messenger.RemoveListener(GameEvent.GAME_OVER,GameOver);
         Messenger.RemoveListener(GameEvent.SET_LEADERBOARD_TEXT,SetLeaderboardText);
     }

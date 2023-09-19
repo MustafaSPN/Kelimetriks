@@ -20,9 +20,10 @@ public class GameManager : MonoBehaviour
     int width = 6;
     int height = 10;
     public int clickCount = 0; 
-    public float timer = 5f;
+    public float timer = 4f;
     public bool isGameContinue;
     public int wrongAnswers = 0;
+    public int score = 0;
     private void Awake()
     {
         Initializer();
@@ -38,8 +39,19 @@ public class GameManager : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <0)
             {
+                if (score < 1000)
+                {
+                    timer = 4f;    
+                }else if (score < 2500)
+                {
+                    timer = 3f;
+                }else if (score<5000)
+                {
+                    timer = 2f;
+                }
+                
                 Messenger.Broadcast(GameEvent.GENERATE_LETTER);
-                timer = 3f;
+                
             }   
         }
         
@@ -179,10 +191,16 @@ public class GameManager : MonoBehaviour
         clickCount = 0;
         wrongAnswers = 0;
         timer = 5f;
+        score = 0;
         circle1.SetActive(false);
         circle2.SetActive(false);
         circle3.SetActive(false);
         StartCoroutine(GenerateFirstLetters());
+    }
+
+    private void SetScore(int scr)
+    {
+        score = scr;
     }
     private void OnEnable()
     {
@@ -192,6 +210,7 @@ public class GameManager : MonoBehaviour
        Messenger<string>.AddListener(GameEvent.RETURN_WORD,CheckWordIsExist);
        Messenger.AddListener(GameEvent.GAME_OVER,GameOver);
        Messenger.AddListener(GameEvent.START_GAME,StartGame);
+       Messenger<int>.AddListener(GameEvent.SEND_SCORE,SetScore);
     }
 
     private void OnDisable()
@@ -203,5 +222,6 @@ public class GameManager : MonoBehaviour
         Messenger<string>.RemoveListener(GameEvent.RETURN_WORD,CheckWordIsExist);
         Messenger.RemoveListener(GameEvent.GAME_OVER,GameOver);
         Messenger.RemoveListener(GameEvent.START_GAME,StartGame);
+        Messenger<int>.AddListener(GameEvent.SEND_SCORE,SetScore);
     }
 }

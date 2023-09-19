@@ -31,10 +31,12 @@ public static class GameEvent
   public const string RETURN_WORD = "RETURN_WORD";
 
   public const string ADD_SCORE = "ADD_SCORE";
+  public const string SEND_SCORE = "SEND_SCORE";
 
   public const string GAME_OVER = "GAME_OVER";
   public const string START_GAME = "START_GAME";
-
+  public const string PAUSE_GAME = "PAUSE_GAME";
+  
   public const string CROSS_LETTER_GENERATE = "CROSS_LETTER_GENERATE";
   public const string DESTROY_CROSS_LETTERS = "DESTROY_CROSS_LETTERS";
 

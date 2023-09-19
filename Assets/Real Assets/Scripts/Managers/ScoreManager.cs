@@ -34,6 +34,8 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = score.ToString();
         });
         score += scr;
+        
+        Messenger<int>.Broadcast(GameEvent.SEND_SCORE,score);
     }
 
     private void SendScoreToLeaderboard()
