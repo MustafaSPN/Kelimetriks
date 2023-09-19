@@ -14,6 +14,7 @@ public class UIManagerInGame : MonoBehaviour
     [SerializeField] private GameObject parent;
     [SerializeField] private LeaderboardDatabase leaderboardData;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingsPanel;
     private List<GameObject> leaderboardTexts = new List<GameObject>();
 
     private void Start()
@@ -61,8 +62,15 @@ public class UIManagerInGame : MonoBehaviour
         Messenger.Broadcast(GameEvent.LOG_OUT);
         SceneManager.LoadScene(0);
     }
+    public void OpenSettingsPanel()
+    {
+        settingsPanel.gameObject.SetActive(true);
+    }
 
-
+    public void CloseSettingsPanel()
+    {
+        settingsPanel.gameObject.SetActive(false);
+    }
     public void OpenPausePanel()
     {
         pausePanel.gameObject.SetActive(true);
