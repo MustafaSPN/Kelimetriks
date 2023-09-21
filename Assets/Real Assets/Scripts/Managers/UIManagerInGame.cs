@@ -18,11 +18,15 @@ public class UIManagerInGame : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private Toggle soundEffectToggle;
     [SerializeField] private Toggle backgroundMusicToggle;
+    [SerializeField] private TMP_Text username;
+    [SerializeField] private AuthUser user;
     private List<GameObject> leaderboardTexts = new List<GameObject>();
     public bool isInGame = false;
+   
     private void Start()
     {
         InitializeLeaderboardText();
+
     }
 
     public void StartGame()
@@ -30,6 +34,7 @@ public class UIManagerInGame : MonoBehaviour
         Messenger.Broadcast(GameEvent.START_GAME);
         holder.SetActive(false);
         isInGame = true;
+        
     }
 
     public void GameOver()
@@ -45,9 +50,11 @@ public class UIManagerInGame : MonoBehaviour
             GameObject pre = Instantiate(prefab,parent.transform);
             pre.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -100 * i);
             leaderboardTexts.Add(pre);
+            
         }
 
         parent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, leaderboardTexts.Count*100 + 100);
+
     }
     
     
@@ -59,6 +66,8 @@ public class UIManagerInGame : MonoBehaviour
             leaderboardTexts[i].transform.GetChild(1).GetComponent<TMP_Text>().text =
                 leaderboardData.leaderboardInfo[i].score.ToString();
         }
+        username.SetText(user.getUsername());
+
        
     }
 

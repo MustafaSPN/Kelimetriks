@@ -21,33 +21,30 @@ public class UIManager : MonoBehaviour
     public TMP_InputField registerPassword1;
     public TMP_InputField registerPassword2;
 
-    public Toggle staySign;
     private DateTime today;
     private string email;
     private string password;
     private int todayInt;
     private TMP_InputField[] inputs;
     private void Start() { 
-        today = DateTime.Now;
-        todayInt = today.Year * 10000 + today.Month * 100 + today.Day;
-        if (Load())
-        {
-            welcomePanel.SetActive(false);
-            loginPanel.SetActive(false);
-            registerPanel.SetActive(false);
-        }else
-        {
+        
             welcomePanel.SetActive(true);
             loginPanel.SetActive(false);
             registerPanel.SetActive(false);
-        }
 
-        inputs = new[]
+            inputs = new[]
         {
             loginEmail, loginPassword, registerEmail, registerName, registerPassword1, registerPassword2
         };
 
 
+    }
+
+    private void Disappear()
+    {
+        welcomePanel.SetActive(false);
+        loginPanel.SetActive(false);
+        registerPanel.SetActive(false);
     }
 
     public void LoginButtonWelcomePressed()
@@ -76,39 +73,14 @@ public class UIManager : MonoBehaviour
 
     public void LoginButtonPressedForLogin()
     {
-        if (staySign.isOn)
-        {
-            Save();
-        }
+        
         Messenger<string, string>.Broadcast(GameEvent.LOG_IN, loginEmail.text, loginPassword.text);
         
     }
 
-    public void Save()
-    {
-        DateTime exDate = DateTime.Now.AddDays(30);
-        int exdateInt = exDate.Year * 10000 + exDate.Month * 100 + exDate.Day;
-        PlayerPrefs.SetString("email",loginEmail.text);
-        PlayerPrefs.SetString("password",loginPassword.text);
-        PlayerPrefs.SetInt("ExDate",exdateInt);
-    }
 
-    public bool Load()
-    {
-        email = PlayerPrefs.GetString("email");
-        password = PlayerPrefs.GetString("password");
-        int exdate = PlayerPrefs.GetInt("ExDate");
-        if (todayInt > exdate)
-        {
-            Debug.Log("false");
-            return false;
-        }
-        else
-        {
-            StartCoroutine(AutoLogIn());
-            return true;
-        }
-    }
+
+   
     public void RegisterButtonPressedForRegister()
     {
         if (registerPassword1.text == registerPassword2.text)
@@ -124,7 +96,7 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator AutoLogIn()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
         Messenger<string,string>.Broadcast(GameEvent.LOG_IN,email,password);
     }
 
@@ -143,10 +115,14 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         Messenger.AddListener(GameEvent.REGISTER_COMPLATED,BackButtonPressed);
+        Messenger.AddListener(GameEvent.SHOW_WELCOME_SCENE,Start);
+        Messenger.AddListener(GameEvent.DONT_SHOW_WELCOME_SCENE,Disappear);
     }
 
     private void OnDisable()
     {
         Messenger.RemoveListener(GameEvent.REGISTER_COMPLATED,BackButtonPressed);
+        Messenger.RemoveListener(GameEvent.SHOW_WELCOME_SCENE,Start);
+        Messenger.RemoveListener(GameEvent.DONT_SHOW_WELCOME_SCENE,Disappear);
     }
 }

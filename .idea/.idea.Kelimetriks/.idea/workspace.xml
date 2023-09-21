@@ -6,13 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/11.4.0/firebase-app-unity-11.4.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/11.4.0/firebase-app-unity-11.4.0.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/11.4.0/firebase-auth-unity-11.4.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/11.4.0/firebase-auth-unity-11.4.0.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-database-unity/11.4.0/firebase-database-unity-11.4.0.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Firebase/m2repository/com/google/firebase/firebase-database-unity/11.4.0/firebase-database-unity-11.4.0.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/JokerLetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/JokerLetter.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/Authentication.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/Authentication.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/ScoreManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/AuthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/AuthManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Database/UsernameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Database/UsernameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/LetterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/LetterMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LeaderboardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LeaderboardManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManagerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManagerEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/UIManagerInGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/UIManagerInGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/AuthUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/AuthUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +39,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons/OnClickPauseButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Database/UsernameData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/FPSCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/MusicManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/AuthUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Random Letters.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/loadingBar/scripts/loadingbar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/11b82f0970ae4241910180e22ab84b6f172600/04/3ea45306/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -70,7 +88,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -78,7 +96,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -128,7 +146,7 @@
       <workItem from="1694683615562" duration="17436000" />
       <workItem from="1694767210857" duration="1269000" />
       <workItem from="1695108112765" duration="13296000" />
-      <workItem from="1695281663600" duration="3938000" />
+      <workItem from="1695281663600" duration="16242000" />
     </task>
     <servers />
   </component>

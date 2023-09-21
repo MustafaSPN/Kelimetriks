@@ -11,7 +11,8 @@ public static class GameEvent
   public const string SENDING_USERNAME = "SENDING_USERNAME";
   public const string REGISTER_COMPLATED = "REGISTER_COMPLATED";
   public const string LOG_OUT = "LOG_OUT";
-
+  public const string SHOW_WELCOME_SCENE = "SHOW_WELCOME_SCENE";
+  public const string DONT_SHOW_WELCOME_SCENE = "DONT_SHOW_WELCOME_SCENE";
   public const string GENERATE_LETTER = "GENERATE_LETTER";
   public const string CLICKED_LETTER = "CLICKED_LETTER";
   public const string DESTROY_CORRECT_LETTER = "DESTROY_CORRECT_LETTER";

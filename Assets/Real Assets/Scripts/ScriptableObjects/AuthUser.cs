@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class AuthUser : ScriptableObject
 {
+    public string username;
     private FirebaseAuth auth;
     private FirebaseUser user;
 
@@ -20,7 +21,8 @@ public class AuthUser : ScriptableObject
     {
         auth = null;
         user = null;
-        
+        username = null;
+
     }
 
     public string GetUserId()
@@ -28,4 +30,13 @@ public class AuthUser : ScriptableObject
         return user.UserId;
     }
 
+    public void setUsername(string name)
+    {
+        username = name;
+    }
+
+    public string getUsername()
+    {
+        return username;
+    }
 }

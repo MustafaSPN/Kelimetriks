@@ -9,15 +9,15 @@ using UnityEngine;
 public class UsernameData : MonoBehaviour
 {
     private DatabaseReference reference;
-
+    
     void Start()
     {
+        Debug.Log($"(UsernameData) Start function called.");
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
-            FirebaseApp app = FirebaseApp.DefaultInstance;
+            var app = FirebaseApp.DefaultInstance;
             Debug.Log("Setting up Firebase Auth.");
             reference = FirebaseDatabase.DefaultInstance.RootReference;
         });
-
     }
 
     private string username;
@@ -31,6 +31,7 @@ public class UsernameData : MonoBehaviour
     private void SendUserToDatabase(FirebaseUser user)
     {
         Debug.Log($"{user.UserId}");
+        Debug.Log($"(UsernameData) username sent to database.");
         reference.Child("users").Child(user.UserId).SetValueAsync(username);
 
     }

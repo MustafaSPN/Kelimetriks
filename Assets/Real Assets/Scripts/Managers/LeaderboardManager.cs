@@ -22,8 +22,9 @@ public class LeaderboardManager : MonoBehaviour
         leaderboard.ClearOldData();
         leaderboardReference = FirebaseDatabase.DefaultInstance.GetReference("leaderboard");
         leaderboardReference.ValueChanged += HandleValueChange;
-        GetLeaderboard();
        GetUsername();
+               GetLeaderboard();
+
     }
 
     public void HandleValueChange(object a,ValueChangedEventArgs b)
@@ -60,15 +61,16 @@ public class LeaderboardManager : MonoBehaviour
     public void GetUsername()
     {
         usernameReference = FirebaseDatabase.DefaultInstance.RootReference;
-        usernameReference.Child("users").Child(scriptableUser.GetUserId()).GetValueAsync().ContinueWith(task =>
+        usernameReference.Child("users").Child(scriptableUser.GetUserId()).GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
                 username = snapshot.Value.ToString();
+                scriptableUser.setUsername(username);
             }
+            
         });
-    
     }
 
     private void CheckLeaderboard(int scr)
