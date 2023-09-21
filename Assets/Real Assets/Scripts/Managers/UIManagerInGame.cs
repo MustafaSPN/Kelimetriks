@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManagerInGame : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UIManagerInGame : MonoBehaviour
     [SerializeField] private LeaderboardDatabase leaderboardData;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private Toggle soundEffectToggle;
+    [SerializeField] private Toggle backgroundMusicToggle;
     private List<GameObject> leaderboardTexts = new List<GameObject>();
     public bool isInGame = false;
     private void Start()
@@ -59,6 +62,36 @@ public class UIManagerInGame : MonoBehaviour
        
     }
 
+    public void OnValueChangedBackgroundMusicToggle()
+    {
+        if (backgroundMusicToggle.isOn)
+        {
+            Messenger.Broadcast(GameEvent.PLAY_BACKGROUND_MUSIC);
+        }
+        else
+        {
+            Messenger.Broadcast(GameEvent.STOP_BACKGROUND_MUSIC);
+        }
+
+
+
+    }
+    public void OnValueChangedSoundEffectToggle()
+    {
+        if (soundEffectToggle.isOn)
+        {
+            Messenger<bool>.Broadcast(GameEvent.PLAY_SOUND_EFFECTS,true);
+        }
+        else
+        {
+            Messenger<bool>.Broadcast(GameEvent.PLAY_SOUND_EFFECTS,false);
+        }
+
+
+
+    }
+    
+    
     public void LogoutButton()
     {
         Messenger.Broadcast(GameEvent.LOG_OUT);

@@ -44,4 +44,17 @@ public static class GameEvent
 
   public const string SET_LEADERBOARD_TEXT = "SET_LEADERBOARD_TEXT";
   public const string SEND_SCORE_TO_LEADERBOARD = "SEND_SCORE_TO_LEADERBOARD";
+
+  public const string PLAY_BACKGROUND_MUSIC = "PLAY_BACKGROUND_MUSIC";
+  public const string STOP_BACKGROUND_MUSIC = "STOP_BACKGROUND_MUSIC";
+  public const string PLAY_SOUND_EFFECTS = "PLAY_SOUND_EFFECTS";
+
+  public const string PLAY_CORRECT_ANSWER = "PLAY_CORRECT_ANSWER";
+  public const string PLAY_CROSS_LETTERS = "PLAY_CROSS_LETTERS";
+  public const string PLAY_GENERATE_LETTERS = "PLAY_GENERATE_LETTERS";
+  public const string PLAY_HARFLER_BINGILDARKEN = "PLAY_HARFLER_BINGILDARKEN";
+  public const string PLAY_JOKER_CALISIRKEN = "PLAY_JOKER_CALISIRKEN";
+  public const string PLAY_JOKER_DUSERKEN = "PLAY_JOKER_DUSERKEN";
+  public const string PLAY_SCORE_RISING = "PLAY_SCORE_RISING";
+  public const string PLAY_WRONG_ANSWER = "PLAY_WRONG_ANSWER";
 }

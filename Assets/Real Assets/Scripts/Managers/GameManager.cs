@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
             {
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.DESTROY_CORRECT_LETTER);
+                Messenger.Broadcast(GameEvent.PLAY_CORRECT_ANSWER);
                 wrongAnswers++;
                 if (wrongAnswers==4)
                 {
@@ -134,10 +135,16 @@ public class GameManager : MonoBehaviour
                 {
                     wrongAnswers = 0;
                 }
-            
+                
+                
+                
+                
+                
+                
             }
             else
             {
+                Messenger.Broadcast(GameEvent.PLAY_WRONG_ANSWER);
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.MOVE_CLICKED_LETTER_BACK);
 

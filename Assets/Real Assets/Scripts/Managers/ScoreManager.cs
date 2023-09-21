@@ -24,6 +24,7 @@ public class ScoreManager : MonoBehaviour
     }
     private void AddScore(int scr)
     {
+        //Messenger.Broadcast(GameEvent.PLAY_SCORE_RISING);
         scoreText.text = score.ToString();
         scoreText.GetComponent<Transform>().DOScale(1.4f, 0.3f).OnComplete((() =>
         {

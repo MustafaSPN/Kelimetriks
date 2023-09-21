@@ -218,12 +218,14 @@ using UnityEngine.Pool;
 
         public void GenerateLetter()
         {
+            
+            
             GameObject obj = queue.Dequeue();
             obj.SetActive(true);
             obj.transform.GetChild(0).gameObject.SetActive(true);
             obj.transform.GetChild(1).gameObject.SetActive(false);
             CreateLetter(obj);
-
+            Messenger.Broadcast(GameEvent.PLAY_GENERATE_LETTERS); 
         }
 
         public void CreateLetter(GameObject obj)
@@ -250,6 +252,7 @@ using UnityEngine.Pool;
         public void ShakeLetters(GameObject obje)
         {
             obje.GetComponent<Transform>().DOShakeScale(0.3f);
+            Messenger.Broadcast(GameEvent.PLAY_HARFLER_BINGILDARKEN);
 
         }
 
@@ -307,6 +310,7 @@ using UnityEngine.Pool;
 
         private void GenerateCrossLetters()
         {
+            Messenger.Broadcast(GameEvent.PLAY_CROSS_LETTERS);
             crossLetter = 6;
             for (int i = 0; i < 6; i++)
             {
@@ -342,6 +346,7 @@ using UnityEngine.Pool;
         
         private void GenerateJokerLetter()
         {
+            Messenger.Broadcast(GameEvent.PLAY_JOKER_DUSERKEN);
             GameObject obj = Instantiate(jokerPrefab);
             int[] position = new int[2];
             position = SetLetterPosition(obj);
@@ -359,6 +364,7 @@ using UnityEngine.Pool;
 
         private IEnumerator JokerEffect(GameObject obj)
         {
+            Messenger.Broadcast(GameEvent.PLAY_JOKER_CALISIRKEN);
             obj.transform.GetChild(1).gameObject.SetActive(true);
             yield return new WaitForSeconds(1f);
             
