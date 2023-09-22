@@ -12,7 +12,7 @@ public class LetterMovement : MonoBehaviour
     public void Move(Vector2 startPosition, Vector2 targetPosition,float duration)
     {
         SetClickable(false);
-        transform.position = startPosition;
+        transform.localPosition = startPosition;
        
 
         if (currentTween != null && currentTween.IsActive())
@@ -20,15 +20,15 @@ public class LetterMovement : MonoBehaviour
             // Eğer bir tween hala çalışıyorsa, ikinci tweeni başlatma
             currentTween.OnKill(() =>
             {
-                currentTween = transform.DOMove(targetPosition, duration).OnComplete(() => { SetClickable(true); })
-                    .OnKill(() => { transform.position = targetPosition; });
+                currentTween = transform.DOLocalMove(targetPosition, duration).OnComplete(() => { SetClickable(true); })
+                    .OnKill(() => { transform.localPosition = targetPosition; });
             });
         }
         else
         {
             // Hiçbir tween çalışmıyorsa, doğrudan tween'i başlat
-            currentTween = transform.DOMove(targetPosition, duration).OnComplete(() => { SetClickable(true); })
-                .OnKill(() => { transform.position = targetPosition; });
+            currentTween = transform.DOLocalMove(targetPosition, duration).OnComplete(() => { SetClickable(true); })
+                .OnKill(() => { transform.localPosition = targetPosition; });
 
         }
     }

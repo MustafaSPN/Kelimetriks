@@ -13,6 +13,7 @@ using UnityEngine.Pool;
     {
         [SerializeField] public List<GameObject> selectedLetter;
         [SerializeField] public List<GameObject> jokerLetters;
+        [SerializeField] public GameObject parent;
         public GameObject[][] GridObjects;
         private Queue<GameObject> queue;
         public int totalLetterCount = 0;
@@ -39,7 +40,7 @@ using UnityEngine.Pool;
             jokerLetters = new List<GameObject>();
             for (int i = 0; i < 49; i++)
             {
-                GameObject obj = Instantiate(prefab);
+                GameObject obj = Instantiate(prefab,parent.transform);
                 obj.SetActive(false);
                 queue.Enqueue(obj);
             }

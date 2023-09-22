@@ -61,3 +61,6 @@ TagManager:
   - name: CircleRed
     uniqueID: 3529337557
     locked: 0
+  - name: Canvas
+    uniqueID: 917068511
+    locked: 0

@@ -10,7 +10,7 @@ public class WordManager : MonoBehaviour
 
     private void Start()
     {
-        wordText.text = "";
+          wordText.text = "";
     }
 
     private void OnEnable()

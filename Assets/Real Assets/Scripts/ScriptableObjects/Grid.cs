@@ -13,6 +13,7 @@ public class Grid : ScriptableObject
     public int width;
     public int height;
 
+  
     public float startX;
     public float startY;
     public float offset = 0.65f;

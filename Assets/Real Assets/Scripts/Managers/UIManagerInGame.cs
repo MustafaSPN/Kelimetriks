@@ -119,6 +119,7 @@ public class UIManagerInGame : MonoBehaviour
     {
         if (isInGame)
         {
+            holder.SetActive(true);
             pausePanel.gameObject.SetActive(true);    
         }
         
@@ -126,6 +127,7 @@ public class UIManagerInGame : MonoBehaviour
 
     public void ClosePausePanel()
     {
+        holder.SetActive(false);
         pausePanel.gameObject.SetActive(false);
     }
 
