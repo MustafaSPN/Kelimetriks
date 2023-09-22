@@ -58,4 +58,7 @@ public static class GameEvent
   public const string PLAY_JOKER_DUSERKEN = "PLAY_JOKER_DUSERKEN";
   public const string PLAY_SCORE_RISING = "PLAY_SCORE_RISING";
   public const string PLAY_WRONG_ANSWER = "PLAY_WRONG_ANSWER";
+
+  public const string COIN = "COIN";
+  
 }

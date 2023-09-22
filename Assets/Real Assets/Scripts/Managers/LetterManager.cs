@@ -94,6 +94,10 @@ using UnityEngine.Pool;
             {
                 Vector2 startPos = obj.GetComponent<Transform>().position;
                 Vector2 targetPos = new Vector2(0, 3f);
+                int score1 = obj.GetComponent<Letter>().score;
+                if (score1 >=150){
+                    Messenger<Transform>.Broadcast(GameEvent.COIN,obj.transform);
+                }
                 obj.GetComponent<LetterMovement>().Move(startPos, targetPos, 0.3f);
             }
 
@@ -173,7 +177,8 @@ using UnityEngine.Pool;
             {
                 int[] index = obj.GetComponent<Letter>().GetCellIndex();
                 int row = index[0];
-                score += obj.GetComponent<Letter>().score;
+                int score1 = obj.GetComponent<Letter>().score; 
+                score += score1;
                 grid.cellFullness[index[0]][index[1]] = false;
                 GridObjects[index[0]][index[1]] = null;
                 obj.GetComponent<Letter>().ResetLetter();
@@ -348,7 +353,7 @@ using UnityEngine.Pool;
         private void GenerateJokerLetter()
         {
             Messenger.Broadcast(GameEvent.PLAY_JOKER_DUSERKEN);
-            GameObject obj = Instantiate(jokerPrefab);
+            GameObject obj = Instantiate(jokerPrefab,parent.transform);
             int[] position = new int[2];
             position = SetLetterPosition(obj);
             obj.GetComponent<Letter>().setPosition(position[0], position[1]);
