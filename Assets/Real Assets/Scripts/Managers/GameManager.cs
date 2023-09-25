@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Firebase.Analytics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject greenCircle3;
 
     [SerializeField] private AdsInitializer initializerAds;
-    
+
     int width = 6;
     int height = 10;
     public int clickCount = 0; 
@@ -29,6 +30,11 @@ public class GameManager : MonoBehaviour
     public bool isGameContinue;
     public int wrongAnswers = 0;
     public int score = 0;
+    public int correctWordCount = 0;
+    public int wrongWordCount = 0;
+    public int letterCount = 0;
+    public int jokerCount = 0;
+    public int crossLetterCount = 0;
     private bool isAdsShowed = false;
     private void Awake()
     {
@@ -94,6 +100,7 @@ public class GameManager : MonoBehaviour
             {
                 Messenger<char>.Broadcast(GameEvent.ADD_LETTER_TO_WORD, ch);
                 Messenger<GameObject>.Broadcast(GameEvent.MOVE_CLICKED_LETTER_HIDE, obj);
+                letterCount++;
                 clickCount++;
             }
             else
@@ -127,10 +134,12 @@ public class GameManager : MonoBehaviour
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.DESTROY_CORRECT_LETTER);
                 Messenger.Broadcast(GameEvent.PLAY_CORRECT_ANSWER);
+                correctWordCount++;
                 wrongAnswers++;
                 if (wrongAnswers==4)
                 {
                     Messenger.Broadcast(GameEvent.JOKER_LETTER_GENERATE);
+                    jokerCount++;
                     wrongAnswers = 0;
                 }
                 else if (wrongAnswers <0)
@@ -149,7 +158,7 @@ public class GameManager : MonoBehaviour
                 Messenger.Broadcast(GameEvent.PLAY_WRONG_ANSWER);
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.MOVE_CLICKED_LETTER_BACK);
-
+                wrongWordCount++;
                 if (wrongAnswers>0)
                 {
                     wrongAnswers = 0;
@@ -165,6 +174,7 @@ public class GameManager : MonoBehaviour
                 {
                     wrongAnswers = 0;
                     Messenger.Broadcast(GameEvent.CROSS_LETTER_GENERATE);
+                    crossLetterCount++;
                 }
                 
                 
@@ -226,10 +236,23 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameContinue = false;
+        SendAnalytics();
         initializerAds.InitializeAds();
 
     }
+    public void SendAnalytics() {
+        string eventName = "Gameplay_Info";
+        Parameter[] parameters = new Parameter[] {
+            new Parameter("Score", score),
+            new Parameter("Wrong_Answers", wrongWordCount),
+            new Parameter("Correct_Answers", correctWordCount),
+            new Parameter("Letters", letterCount),
+            new Parameter("Joker_Letter", jokerCount),
+            new Parameter("Cross_Letters", crossLetterCount)
+        };
 
+        FirebaseAnalytics.LogEvent(eventName, parameters);
+    }
     public void StartGame()
     {
         isGameContinue = true;
@@ -238,6 +261,11 @@ public class GameManager : MonoBehaviour
         wrongAnswers = 0;
         timer = 5f;
         score = 0;
+        correctWordCount = 0;
+        wrongWordCount = 0;
+        jokerCount = 0;
+        letterCount = 0;
+        crossLetterCount = 0;
         redCircle1.SetActive(false);
         redCircle2.SetActive(false);
         redCircle3.SetActive(false);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Firebase;
 using Firebase.Auth;
 using UnityEngine;
 
@@ -10,9 +11,11 @@ public class AuthUser : ScriptableObject
     public string username;
     private FirebaseAuth auth;
     private FirebaseUser user;
+    private FirebaseApp app;
 
-    public void InitializeUser(FirebaseAuth au)
+    public void InitializeUser(FirebaseAuth au,FirebaseApp ap)
     {
+        app = ap;
         auth = au;
         user = au.CurrentUser;
     }
@@ -38,5 +41,10 @@ public class AuthUser : ScriptableObject
     public string getUsername()
     {
         return username;
+    }
+
+    public void LogEvent(string name)
+    {
+        Firebase.Analytics.FirebaseAnalytics.LogEvent(name);
     }
 }

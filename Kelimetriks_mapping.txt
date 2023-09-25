@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 3.1.66
 # min_api: 24
-# pg_map_id: 532378b
+# pg_map_id: c0c071e
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"1.0"}
 android.support.v4.app.RemoteActionCompatParcelizer -> android.support.v4.app.RemoteActionCompatParcelizer:
@@ -20818,7 +20818,7 @@ com.google.android.gms.measurement.internal.zzik -> com.google.android.gms.measu
     1:5:void zzJ(com.google.android.gms.measurement.internal.zzhg) -> x
     1:3:void zzK(long) -> y
     1:37:void zzL(long,boolean) -> z
-com.google.android.gms.measurement.internal.zzil -> b0.v:
+com.google.android.gms.measurement.internal.zzil -> com.google.android.gms.measurement.internal.zzil:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-base@@21.3.0"}
     void zzp(java.lang.String) -> a
     java.util.Map zzo(java.lang.String,java.lang.String,boolean) -> b
@@ -20859,7 +20859,7 @@ com.google.android.gms.measurement.internal.zzip -> com.google.android.gms.measu
     1:1:void <init>(com.google.android.gms.measurement.internal.zzlh) -> <init>
     1:1:java.lang.String zza(java.lang.String,java.lang.String) -> b
     boolean zzb() -> l
-com.google.android.gms.measurement.internal.zziq -> b0.w:
+com.google.android.gms.measurement.internal.zziq -> b0.v:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-base@@21.3.0"}
     1:6:java.lang.String zzb(java.lang.String,java.lang.String[],java.lang.String[]) -> a
     1:5:java.lang.String zzc(android.content.Context,java.lang.String,java.lang.String) -> b
@@ -20872,7 +20872,7 @@ com.google.android.gms.measurement.internal.zzir -> com.google.android.gms.measu
     java.lang.String zzb -> b
     boolean zzd -> d
     1:1:void <init>(java.lang.String,java.lang.String,long) -> <init>
-com.google.android.gms.measurement.internal.zzis -> b0.x:
+com.google.android.gms.measurement.internal.zzis -> b0.w:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-impl@@21.3.0"}
     boolean zza(java.lang.Object,java.lang.Object) -> a
 com.google.android.gms.measurement.internal.zzit -> com.google.android.gms.measurement.internal.d7:
@@ -21353,7 +21353,7 @@ com.google.android.gms.measurement.internal.zzke -> com.google.android.gms.measu
     java.lang.Runnable zzb -> f
     com.google.android.gms.measurement.internal.zzlh zza -> e
     1:3:void run() -> run
-com.google.android.gms.measurement.internal.zzkf -> b0.y:
+com.google.android.gms.measurement.internal.zzkf -> b0.x:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
     void zza(android.content.Intent) -> a
     boolean zzc(int) -> b
@@ -21544,7 +21544,7 @@ com.google.android.gms.measurement.internal.zzlc -> com.google.android.gms.measu
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
     com.google.android.gms.measurement.internal.zzlh zza -> a
     1:4:void zza(java.lang.String,java.lang.String,android.os.Bundle) -> a
-com.google.android.gms.measurement.internal.zzld -> b0.z:
+com.google.android.gms.measurement.internal.zzld -> b0.y:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
 com.google.android.gms.measurement.internal.zzle -> com.google.android.gms.measurement.internal.o9:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
@@ -21557,7 +21557,7 @@ com.google.android.gms.measurement.internal.zzle -> com.google.android.gms.measu
     9:9:boolean zza(long,com.google.android.gms.internal.measurement.zzft):7:7 -> a
     10:14:boolean zza(long,com.google.android.gms.internal.measurement.zzft):9:13 -> a
     1:1:long zzb(com.google.android.gms.internal.measurement.zzft) -> b
-com.google.android.gms.measurement.internal.zzlf -> b0.a0:
+com.google.android.gms.measurement.internal.zzlf -> b0.z:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
 com.google.android.gms.measurement.internal.zzlg -> com.google.android.gms.measurement.internal.p9:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
@@ -22072,7 +22072,7 @@ com.google.android.gms.measurement.internal.zzlm -> com.google.android.gms.measu
     java.lang.String zzc -> c
     java.lang.String zzb -> b
     1:3:void <init>(java.lang.String,java.lang.String,java.lang.String,long,java.lang.Object) -> <init>
-com.google.android.gms.measurement.internal.zzln -> b0.b0:
+com.google.android.gms.measurement.internal.zzln -> b0.a0:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-impl@@21.3.0"}
     boolean zza(java.lang.Object,java.lang.Object) -> a
 com.google.android.gms.measurement.internal.zzlo -> com.google.android.gms.measurement.internal.w9:
@@ -22292,7 +22292,7 @@ com.google.android.gms.measurement.internal.zzs -> com.google.android.gms.measur
     1:2:void zzc() -> c
     1:1:boolean zzd() -> d
     1:4:boolean zze() -> e
-com.google.android.gms.measurement.internal.zzt -> b0.c0:
+com.google.android.gms.measurement.internal.zzt -> b0.b0:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
 com.google.android.gms.measurement.internal.zzu -> com.google.android.gms.measurement.internal.fa:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
@@ -22315,7 +22315,7 @@ com.google.android.gms.measurement.internal.zzu -> com.google.android.gms.measur
     1:20:void zzc(com.google.android.gms.measurement.internal.zzy) -> c
     21:23:void zzc(com.google.android.gms.measurement.internal.zzy):23:25 -> c
     24:25:void zzc(com.google.android.gms.measurement.internal.zzy):21:22 -> c
-com.google.android.gms.measurement.internal.zzv -> b0.d0:
+com.google.android.gms.measurement.internal.zzv -> b0.c0:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
 com.google.android.gms.measurement.internal.zzw -> com.google.android.gms.measurement.internal.ga:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement@@21.3.0"}
@@ -27151,9 +27151,8 @@ com.google.firebase.StartupTime -> com.google.firebase.i:
     2:2:com.google.firebase.StartupTime now():53:53 -> e
 com.google.firebase.analytics.FirebaseAnalytics -> com.google.firebase.analytics.FirebaseAnalytics:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
-    com.google.firebase.analytics.FirebaseAnalytics zza -> b
-    com.google.android.gms.internal.measurement.zzef zzb -> a
     1:1:void <init>(com.google.android.gms.internal.measurement.zzef) -> <init>
+    1:4:com.google.android.gms.tasks.Task getAppInstanceId() -> getAppInstanceId
     1:3:java.lang.String getFirebaseInstanceId() -> getFirebaseInstanceId
     4:4:java.lang.String getFirebaseInstanceId():5:5 -> getFirebaseInstanceId
     5:5:java.lang.String getFirebaseInstanceId():4:4 -> getFirebaseInstanceId
@@ -27161,7 +27160,33 @@ com.google.firebase.analytics.FirebaseAnalytics -> com.google.firebase.analytics
     7:7:java.lang.String getFirebaseInstanceId():5:5 -> getFirebaseInstanceId
     1:3:com.google.firebase.analytics.FirebaseAnalytics getInstance(android.content.Context) -> getInstance
     1:1:com.google.android.gms.measurement.internal.zzil getScionFrontendApiImplementation(android.content.Context,android.os.Bundle) -> getScionFrontendApiImplementation
+    1:4:com.google.android.gms.tasks.Task getSessionId() -> getSessionId
+    1:1:void logEvent(java.lang.String,android.os.Bundle) -> logEvent
+    1:1:void resetAnalyticsData() -> resetAnalyticsData
+    1:1:void setAnalyticsCollectionEnabled(boolean) -> setAnalyticsCollectionEnabled
+    1:5:void setConsent(java.util.Map) -> setConsent
+    6:6:void setConsent(java.util.Map):3:3 -> setConsent
+    7:10:void setConsent(java.util.Map):6:9 -> setConsent
+    11:11:void setConsent(java.util.Map):8:8 -> setConsent
+    12:12:void setConsent(java.util.Map):10:10 -> setConsent
     1:1:void setCurrentScreen(android.app.Activity,java.lang.String,java.lang.String) -> setCurrentScreen
+    1:1:void setDefaultEventParameters(android.os.Bundle) -> setDefaultEventParameters
+    1:1:void setSessionTimeoutDuration(long) -> setSessionTimeoutDuration
+    1:1:void setUserId(java.lang.String) -> setUserId
+    1:1:void setUserProperty(java.lang.String,java.lang.String) -> setUserProperty
+    1:3:java.util.concurrent.ExecutorService zzb() -> zzb
+com.google.firebase.analytics.FirebaseAnalytics$ConsentStatus -> com.google.firebase.analytics.FirebaseAnalytics$ConsentStatus:
+# {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
+    1:2:void <clinit>() -> <clinit>
+    1:1:void <init>(java.lang.String,int) -> <init>
+    1:1:com.google.firebase.analytics.FirebaseAnalytics$ConsentStatus valueOf(java.lang.String) -> valueOf
+    1:1:com.google.firebase.analytics.FirebaseAnalytics$ConsentStatus[] values() -> values
+com.google.firebase.analytics.FirebaseAnalytics$ConsentType -> com.google.firebase.analytics.FirebaseAnalytics$ConsentType:
+# {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
+    1:2:void <clinit>() -> <clinit>
+    1:1:void <init>(java.lang.String,int) -> <init>
+    1:1:com.google.firebase.analytics.FirebaseAnalytics$ConsentType valueOf(java.lang.String) -> valueOf
+    1:1:com.google.firebase.analytics.FirebaseAnalytics$ConsentType[] values() -> values
 com.google.firebase.analytics.connector.AnalyticsConnector -> g0.a:
 # {"id":"sourceFile","fileName":"com.google.firebase:firebase-measurement-connector@@19.0.0"}
 com.google.firebase.analytics.connector.AnalyticsConnectorImpl -> g0.b:
@@ -27187,7 +27212,18 @@ com.google.firebase.analytics.connector.zzb -> g0.d:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
     com.google.firebase.analytics.connector.zzb zza -> a
     void handle(com.google.firebase.events.Event) -> a
-com.google.firebase.analytics.zzd -> com.google.firebase.analytics.a:
+com.google.firebase.analytics.zza -> com.google.firebase.analytics.a:
+# {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
+    1:1:void <init>(com.google.firebase.analytics.FirebaseAnalytics,int,int,long,java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue) -> <init>
+com.google.firebase.analytics.zzb -> com.google.firebase.analytics.b:
+# {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
+    com.google.firebase.analytics.FirebaseAnalytics zza -> a
+    1:1:java.lang.Object call() -> call
+com.google.firebase.analytics.zzc -> com.google.firebase.analytics.c:
+# {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
+    com.google.firebase.analytics.FirebaseAnalytics zza -> a
+    1:1:java.lang.Object call() -> call
+com.google.firebase.analytics.zzd -> com.google.firebase.analytics.d:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-measurement-api@@21.3.0"}
     com.google.android.gms.internal.measurement.zzef zza -> a
     1:1:void zzp(java.lang.String) -> a

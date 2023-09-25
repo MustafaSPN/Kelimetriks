@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using Firebase;
+using Firebase.Analytics;
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Extensions;
@@ -17,7 +18,7 @@ public class AuthManager : MonoBehaviour
     private FirebaseUser user;
     private DatabaseReference reference;
     [SerializeField]private AuthUser scriptableUser;
-
+    private FirebaseApp app;
 
 
     private void Awake()
@@ -63,7 +64,12 @@ public class AuthManager : MonoBehaviour
         Debug.Log($"(Auth)InitializeFirebase functions called.");
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
             Debug.Log($"(Auth)FirebaseApp checkAndFixDependencies functions called.");
-            FirebaseApp app = FirebaseApp.DefaultInstance;
+            #if UNITY_EDITOR
+                        app = FirebaseApp.Create();
+
+            #else
+                        app = FirebaseApp.DefaultInstance;
+            #endif
             auth = FirebaseAuth.DefaultInstance;
             reference = FirebaseDatabase.DefaultInstance.RootReference;
             auth.StateChanged += AuthStateChanged;
@@ -76,6 +82,10 @@ public class AuthManager : MonoBehaviour
 
     private IEnumerator CheckAutoLogin()
     {
+        FirebaseAnalytics.LogEvent(
+            FirebaseAnalytics.EventPostScore,
+            FirebaseAnalytics.ParameterScore,
+            42);
         Debug.Log($"checkautologin called");
         yield return new WaitForEndOfFrame();
         if (user!=null)
@@ -95,10 +105,11 @@ public class AuthManager : MonoBehaviour
 
     private void AutoLogin()
     {Debug.Log($"Autologin called");
+        FirebaseAnalytics.LogEvent("AutoLogin");
         if (user!=null)
         {
             Debug.Log($"Autologin called2");
-            scriptableUser.InitializeUser(auth);
+            scriptableUser.InitializeUser(auth,app);
             GoGameScene();
         }
     }
@@ -138,7 +149,7 @@ public class AuthManager : MonoBehaviour
             Debug.LogFormat("(Auth)User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
             
-            scriptableUser.InitializeUser(auth);
+            scriptableUser.InitializeUser(auth,app);
             GoGameScene();
 
         });

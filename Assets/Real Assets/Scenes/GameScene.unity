@@ -4297,6 +4297,7 @@ MonoBehaviour:
   greenCircle2: {fileID: 2127499371}
   greenCircle3: {fileID: 1877977776}
   initializerAds: {fileID: 1116112538}
+  auth: {fileID: 11400000, guid: 57a95a4f9a05740c9acd7f8cc876c9de, type: 2}
   clickCount: 0
   timer: 5
   isGameContinue: 0
