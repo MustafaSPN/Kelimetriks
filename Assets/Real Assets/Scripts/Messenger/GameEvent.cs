@@ -38,6 +38,7 @@ public static class GameEvent
   public const string GAME_OVER = "GAME_OVER";
   public const string START_GAME = "START_GAME";
   public const string PAUSE_GAME = "PAUSE_GAME";
+  public const string CONTINUE_GAME = "CONTINUE_GAME";
   
   public const string CROSS_LETTER_GENERATE = "CROSS_LETTER_GENERATE";
   public const string DESTROY_CROSS_LETTERS = "DESTROY_CROSS_LETTERS";
@@ -60,5 +61,9 @@ public static class GameEvent
   public const string PLAY_WRONG_ANSWER = "PLAY_WRONG_ANSWER";
 
   public const string COIN = "COIN";
-  
+
+  public const string WAIT_FOR_ADS = "WAIT_FOR_ADS";
+  public const string SHOW_ADS_BUTTON = "SHOW_ADS_BUTTON";
+  public const string SHOW_ADS = "SHOW_ADS";
+  public const string REWARDED_ADS = "REWARDED_ADS";
 }

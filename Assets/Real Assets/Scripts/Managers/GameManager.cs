@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject greenCircle1;
     [SerializeField] private GameObject greenCircle2;
     [SerializeField] private GameObject greenCircle3;
-    
+
+    [SerializeField] private AdsInitializer initializerAds;
     
     int width = 6;
     int height = 10;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool isGameContinue;
     public int wrongAnswers = 0;
     public int score = 0;
+    private bool isAdsShowed = false;
     private void Awake()
     {
         Initializer();
@@ -224,12 +226,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameContinue = false;
-     
+        initializerAds.InitializeAds();
+
     }
 
     public void StartGame()
     {
         isGameContinue = true;
+        isAdsShowed = false;
         clickCount = 0;
         wrongAnswers = 0;
         timer = 5f;
@@ -247,6 +251,51 @@ public class GameManager : MonoBehaviour
     {
         score = scr;
     }
+
+    private void ShowAd()
+    {
+        if (!isAdsShowed)
+        {
+            Messenger.Broadcast(GameEvent.SHOW_ADS_BUTTON);
+            isAdsShowed = true;
+            PauseGame();
+        }
+        else
+        {
+            Messenger.Broadcast(GameEvent.GAME_OVER);
+        }
+        
+    }
+
+    public void PauseGame()
+    {
+        isGameContinue = false;
+    }
+
+    public void Rewarded()
+    {
+        isGameContinue = true;
+        clickCount = 0;
+        wrongAnswers = 0;
+        redCircle1.SetActive(false);
+        redCircle2.SetActive(false);
+        redCircle3.SetActive(false);
+        greenCircle1.SetActive(false);
+        greenCircle2.SetActive(false);
+        greenCircle3.SetActive(false);
+        StartCoroutine(GenerateFirstLetters());
+    }
+    public void StartContinueGame()
+    {
+        StartCoroutine(ContinueGame());
+    }
+
+    public IEnumerator ContinueGame()
+    {
+        yield return new WaitForSeconds(1f);
+        isGameContinue = true;
+
+    }
     private void OnEnable()
     {
        Messenger<char,GameObject>.AddListener(GameEvent.CLICKED_LETTER,ClickedLetter);
@@ -256,6 +305,10 @@ public class GameManager : MonoBehaviour
        Messenger.AddListener(GameEvent.GAME_OVER,GameOver);
        Messenger.AddListener(GameEvent.START_GAME,StartGame);
        Messenger<int>.AddListener(GameEvent.SEND_SCORE,SetScore);
+       Messenger.AddListener(GameEvent.WAIT_FOR_ADS,ShowAd);
+       Messenger.AddListener(GameEvent.REWARDED_ADS,Rewarded);
+       Messenger.AddListener(GameEvent.PAUSE_GAME,PauseGame);
+       Messenger.AddListener(GameEvent.CONTINUE_GAME,StartContinueGame);
     }
 
     private void OnDisable()
@@ -267,6 +320,11 @@ public class GameManager : MonoBehaviour
         Messenger<string>.RemoveListener(GameEvent.RETURN_WORD,CheckWordIsExist);
         Messenger.RemoveListener(GameEvent.GAME_OVER,GameOver);
         Messenger.RemoveListener(GameEvent.START_GAME,StartGame);
-        Messenger<int>.AddListener(GameEvent.SEND_SCORE,SetScore);
+        Messenger<int>.RemoveListener(GameEvent.SEND_SCORE,SetScore);
+        Messenger.RemoveListener(GameEvent.WAIT_FOR_ADS,ShowAd);
+        Messenger.RemoveListener(GameEvent.REWARDED_ADS,Rewarded);
+        Messenger.RemoveListener(GameEvent.PAUSE_GAME,PauseGame);
+        Messenger.RemoveListener(GameEvent.CONTINUE_GAME,StartContinueGame);
+
     }
 }

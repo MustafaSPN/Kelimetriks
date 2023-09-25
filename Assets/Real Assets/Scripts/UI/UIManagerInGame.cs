@@ -20,6 +20,7 @@ public class UIManagerInGame : MonoBehaviour
     [SerializeField] private Toggle backgroundMusicToggle;
     [SerializeField] private TMP_Text username;
     [SerializeField] private AuthUser user;
+    [SerializeField] private GameObject adsPanel;
     private List<GameObject> leaderboardTexts = new List<GameObject>();
     public bool isInGame = false;
    
@@ -129,6 +130,8 @@ public class UIManagerInGame : MonoBehaviour
     {
         holder.SetActive(false);
         pausePanel.gameObject.SetActive(false);
+        Messenger.Broadcast(GameEvent.CONTINUE_GAME);
+
     }
 
     public void ExitGame()
@@ -148,11 +151,29 @@ public class UIManagerInGame : MonoBehaviour
     {
         leaderboardPopup.SetActive(false);
     }
+
+    public void ShowAdsPanel()
+    {
+        adsPanel.SetActive(true);
+    }
+
+    public void AdButtonClicked()
+    {
+        adsPanel.SetActive(false);
+        Messenger.Broadcast(GameEvent.SHOW_ADS);
+    }
+
+    public void LoseButtonClicked()
+    {
+     Messenger.Broadcast(GameEvent.GAME_OVER);
+     adsPanel.SetActive(false);
+    }
     private void OnEnable()
     {
         Messenger.AddListener(GameEvent.PAUSE_GAME,OpenPausePanel);
         Messenger.AddListener(GameEvent.GAME_OVER,GameOver);
         Messenger.AddListener(GameEvent.SET_LEADERBOARD_TEXT,SetLeaderboardText);
+        Messenger.AddListener(GameEvent.SHOW_ADS_BUTTON,ShowAdsPanel);
     }
 
     private void OnDisable()
@@ -160,5 +181,6 @@ public class UIManagerInGame : MonoBehaviour
         Messenger.RemoveListener(GameEvent.PAUSE_GAME,OpenPausePanel);
         Messenger.RemoveListener(GameEvent.GAME_OVER,GameOver);
         Messenger.RemoveListener(GameEvent.SET_LEADERBOARD_TEXT,SetLeaderboardText);
+        Messenger.RemoveListener(GameEvent.SHOW_ADS_BUTTON,ShowAdsPanel);
     }
 }

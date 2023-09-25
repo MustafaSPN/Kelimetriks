@@ -11,6 +11,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private GameObject parent;
     public Queue<GameObject> queue = new Queue<GameObject>();
     [SerializeField] private TMP_Text coinText;
+    [SerializeField] private RectTransform target;
     public int coinCount;
     private void Start()
     {
@@ -18,6 +19,7 @@ public class CoinManager : MonoBehaviour
         for (int i = 0; i < 7; i++)
         {
             GameObject obj = Instantiate(prefab, parent.transform);
+            obj.GetComponent<CoinMovement>().SetTarget(target);
             obj.SetActive(false);
             queue.Enqueue(obj);
         }

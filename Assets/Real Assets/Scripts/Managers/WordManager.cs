@@ -19,6 +19,7 @@ public class WordManager : MonoBehaviour
         Messenger.AddListener(GameEvent.EMPTY_WORD,CancelWord);
         Messenger.AddListener(GameEvent.REQUEST_WORD,ReturnWord);
         Messenger.AddListener(GameEvent.GAME_OVER,CancelWord);
+        Messenger.AddListener(GameEvent.REWARDED_ADS,CancelWord);
     }
 
     private void OnDisable()
@@ -27,6 +28,7 @@ public class WordManager : MonoBehaviour
         Messenger.RemoveListener(GameEvent.EMPTY_WORD,CancelWord);
         Messenger.RemoveListener(GameEvent.REQUEST_WORD,ReturnWord);
         Messenger.RemoveListener(GameEvent.GAME_OVER,CancelWord);
+        Messenger.RemoveListener(GameEvent.REWARDED_ADS,CancelWord);
     }
 
     public void ReturnWord()

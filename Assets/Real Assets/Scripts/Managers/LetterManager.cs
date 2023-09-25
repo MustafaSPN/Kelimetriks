@@ -69,6 +69,7 @@ using UnityEngine.Pool;
             Messenger.AddListener(GameEvent.START_GAME, ResetGame);
             Messenger.AddListener(GameEvent.JOKER_LETTER_GENERATE, GenerateJokerLetter);
             Messenger.AddListener(GameEvent.CLICKED_JOKERLETTER, ClickedJoker);
+            Messenger.AddListener(GameEvent.REWARDED_ADS,RewardAds);
 
 
         }
@@ -79,12 +80,13 @@ using UnityEngine.Pool;
             Messenger.RemoveListener(GameEvent.CROSS_LETTER_GENERATE, GenerateCrossLetters);
             Messenger.RemoveListener(GameEvent.GENERATE_LETTER, GenerateLetter);
             Messenger.RemoveListener(GameEvent.DESTROY_CORRECT_LETTER, DestroyCorrectLetter);
-            Messenger<GameObject>.AddListener(GameEvent.MOVE_CLICKED_LETTER_HIDE, HighlightLetter);
-            Messenger.AddListener(GameEvent.MOVE_CLICKED_LETTER_BACK, HighlightBackLetter);
+            Messenger<GameObject>.RemoveListener(GameEvent.MOVE_CLICKED_LETTER_HIDE, HighlightLetter);
+            Messenger.RemoveListener(GameEvent.MOVE_CLICKED_LETTER_BACK, HighlightBackLetter);
             Messenger<GameObject>.RemoveListener(GameEvent.SHAKE_LETTERS, ShakeLetters);
             Messenger.RemoveListener(GameEvent.START_GAME, ResetGame);
             Messenger.RemoveListener(GameEvent.JOKER_LETTER_GENERATE, GenerateJokerLetter);
             Messenger.RemoveListener(GameEvent.CLICKED_JOKERLETTER, ClickedJoker);
+            Messenger.RemoveListener(GameEvent.REWARDED_ADS,RewardAds);
         }
 
         private void DestroyCorrectLetter()
@@ -300,7 +302,7 @@ using UnityEngine.Pool;
 
         public void GameOver()
         {
-            Messenger.Broadcast(GameEvent.GAME_OVER);
+            Messenger.Broadcast(GameEvent.WAIT_FOR_ADS);
         }
 
         private void ResetGame()
@@ -448,6 +450,12 @@ using UnityEngine.Pool;
             }
         }
 
+        private void RewardAds()
+        {
+        ResetGame();
+
+        }
+        
         private void DestroyAllWords()
     {
         foreach (var objects in GridObjects)

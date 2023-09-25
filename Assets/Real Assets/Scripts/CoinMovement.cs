@@ -6,10 +6,16 @@ using UnityEngine;
 
 public class CoinMovement : MonoBehaviour
 {
-    [SerializeField] private RectTransform target;
-
+    [SerializeField] public RectTransform target;
+    
+    
     private void Start()
     {
         GetComponent<RectTransform>().DOAnchorPos(target.anchoredPosition, 3f);
+    }
+
+    public void SetTarget(RectTransform targt)
+    {
+        target = targt;
     }
 }
