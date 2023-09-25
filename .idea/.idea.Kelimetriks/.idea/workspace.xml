@@ -6,29 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UIManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CoinManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CoinManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CoinMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CoinMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/FPSCounter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/FPSCounter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InGamePanelUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InGamePanelUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Coin (1).prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Prefabs/Coin (1).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CoinMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/CoinMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/CoinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/CoinManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/UIManagerInGame.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/UIManagerInGame.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/WordManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/WordManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Rescale.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Rescale.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScrollView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScrollView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +143,7 @@
       <workItem from="1695281663600" duration="16790000" />
       <workItem from="1695367025940" duration="18728000" />
       <workItem from="1695623725575" duration="1933000" />
-      <workItem from="1695628529665" duration="3870000" />
+      <workItem from="1695628529665" duration="4357000" />
     </task>
     <servers />
   </component>

@@ -144,6 +144,7 @@ using UnityEngine.Pool;
 
         private void HighlightLetter(GameObject obj)
         {
+            // Messenger<Transform>.Broadcast(GameEvent.COIN,obj.transform);
             selectedLetter.Add(obj);
             Color color = obj.GetComponent<SpriteRenderer>().color;
             color.a = 0.4f;

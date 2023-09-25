@@ -19,7 +19,6 @@ public class CoinManager : MonoBehaviour
         for (int i = 0; i < 7; i++)
         {
             GameObject obj = Instantiate(prefab, parent.transform);
-            obj.GetComponent<CoinMovement>().SetTarget(target);
             obj.SetActive(false);
             queue.Enqueue(obj);
         }
