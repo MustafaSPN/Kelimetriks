@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: a50a5af6a110c45ca85b571b064eecf6
+  m_DefaultGroup: 77bfca2db50754c479637ba0df013e89
   m_currentHash:
     serializedVersion: 2
-    Hash: 6d159311908b3fba311788a406d6fd0c
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -35,21 +35,21 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: fb6ab50af8be2426c9a7595a4f0126f1
   m_RemoteCatalogLoadPath:
-    m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+    m_Id: d30d36a86437d4b7e8df837658490308
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 3311db5f2f81f4e159486262a35000c2, type: 2}
-  - {fileID: 11400000, guid: 64f54a53f35d1491cad530822a05a68a, type: 2}
   - {fileID: 11400000, guid: 7332a7aa773a249b4b50d6b86244b5ab, type: 2}
   - {fileID: 11400000, guid: 54704013cd3c14352949b1e803d48030, type: 2}
   - {fileID: 11400000, guid: d48a658c9490542a5bae89d3e84c7a2a, type: 2}
   - {fileID: 11400000, guid: 47a14936796314831846c52b7437914e, type: 2}
+  - {fileID: 11400000, guid: 920d09de9f4c74f0cb629f16133a1bce, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -70,7 +70,7 @@ MonoBehaviour:
       - m_Id: fb6ab50af8be2426c9a7595a4f0126f1
         m_Value: ServerData/[BuildTarget]
       - m_Id: d30d36a86437d4b7e8df837658490308
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: https://dev-cm-dlc.fortunemine.games/[BuildTarget]
     m_ProfileEntryNames:
     - m_Id: 29ba3341422d84cf8a26f9c4a7c828cd
       m_Name: BuildTarget

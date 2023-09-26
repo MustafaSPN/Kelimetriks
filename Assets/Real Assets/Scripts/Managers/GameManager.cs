@@ -302,6 +302,7 @@ public class GameManager : MonoBehaviour
 
     public void Rewarded()
     {
+        FirebaseAnalytics.LogEvent("Rewarded_Ad");
         isGameContinue = true;
         clickCount = 0;
         wrongAnswers = 0;
