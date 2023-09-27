@@ -57,9 +57,17 @@ public class GameManager : MonoBehaviour
                 }else if (score < 2500)
                 {
                     timer = 3f;
-                }else if (score<5000)
+                }
+                else if (score<5000)
                 {
                     timer = 2f;
+                }
+                else if (score <10000)
+                {
+                    timer = 1f;
+                }else if (score >10000)
+                {
+                    timer = 0.5f;
                 }
                 
                 Messenger.Broadcast(GameEvent.GENERATE_LETTER);
@@ -134,6 +142,7 @@ public class GameManager : MonoBehaviour
                 Messenger.Broadcast(GameEvent.EMPTY_WORD);
                 Messenger.Broadcast(GameEvent.DESTROY_CORRECT_LETTER);
                 Messenger.Broadcast(GameEvent.PLAY_CORRECT_ANSWER);
+                Messenger<string>.Broadcast(GameEvent.CORRECT_WORD,word);
                 correctWordCount++;
                 wrongAnswers++;
                 if (wrongAnswers==4)
@@ -278,6 +287,20 @@ public class GameManager : MonoBehaviour
     private void SetScore(int scr)
     {
         score = scr;
+        if (score <1000)
+        {
+            wordAsset.SetSegment(0);
+        }else if (score < 2500)
+        {
+            wordAsset.SetSegment(1);
+        }else if (score < 5000)
+        {
+            wordAsset.SetSegment(2);
+        }
+        else
+        {
+            wordAsset.SetSegment(3);
+        }
     }
 
     private void ShowAd()

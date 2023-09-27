@@ -120,7 +120,6 @@ public class UIManagerInGame : MonoBehaviour
     {
         if (isInGame)
         {
-            holder.SetActive(true);
             pausePanel.gameObject.SetActive(true);    
         }
         

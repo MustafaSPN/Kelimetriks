@@ -4297,12 +4297,16 @@ MonoBehaviour:
   greenCircle2: {fileID: 2127499371}
   greenCircle3: {fileID: 1877977776}
   initializerAds: {fileID: 1116112538}
-  auth: {fileID: 11400000, guid: 57a95a4f9a05740c9acd7f8cc876c9de, type: 2}
   clickCount: 0
   timer: 5
   isGameContinue: 0
   wrongAnswers: 0
   score: 0
+  correctWordCount: 0
+  wrongWordCount: 0
+  letterCount: 0
+  jokerCount: 0
+  crossLetterCount: 0
 --- !u!4 &1338820714
 Transform:
   m_ObjectHideFlags: 0
@@ -4637,6 +4641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582717211}
   - component: {fileID: 1582717212}
+  - component: {fileID: 1582717213}
   m_Layer: 0
   m_Name: WordManager
   m_TagString: Untagged
@@ -4672,6 +4677,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wordText: {fileID: 430688537}
+--- !u!114 &1582717213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582717210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29aa39d70dad343edad3a9c7c45c6ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wordObject: {fileID: 11400000, guid: ad11b78730ea94047a413685993e3d45, type: 2}
 --- !u!1 &1596611936
 GameObject:
   m_ObjectHideFlags: 0

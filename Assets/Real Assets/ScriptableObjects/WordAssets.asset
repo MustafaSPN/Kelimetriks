@@ -13,3 +13,12 @@ MonoBehaviour:
   m_Name: WordAssets
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 88fa55b955a694bdb9666f91f1cbe4bf, type: 3}
+  WordCountList0: []
+  WordCountList1: []
+  WordCountList2:
+  - ARABA
+  - UCUBE
+  WordCountList3:
+  - KEMER
+  segment: 0
+  count: 7

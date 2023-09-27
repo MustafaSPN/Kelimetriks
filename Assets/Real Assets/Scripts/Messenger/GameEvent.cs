@@ -31,6 +31,7 @@ public static class GameEvent
 
   public const string REQUEST_WORD = "REQUEST_WORD";
   public const string RETURN_WORD = "RETURN_WORD";
+  public const string CORRECT_WORD = "CORRECT_WORD";
 
   public const string ADD_SCORE = "ADD_SCORE";
   public const string SEND_SCORE = "SEND_SCORE";

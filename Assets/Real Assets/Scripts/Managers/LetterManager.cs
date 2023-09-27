@@ -212,7 +212,7 @@ using UnityEngine.Pool;
                     GridObjects[a][i] = null;
                     grid.cellFullness[a][i - 1] = true;
                     grid.cellFullness[a][i] = false;
-                    Vector2 startPos = GridObjects[a][i - 1].GetComponent<Transform>().position;
+                    Vector2 startPos = GridObjects[a][i - 1].GetComponent<Transform>().localPosition;
                     Vector2 targetPos = grid.cellPosition[a][i - 1];
                     GridObjects[a][i - 1].GetComponent<LetterMovement>().Move(startPos, targetPos,
                         CalculateMoveDuration(startPos, targetPos));
@@ -310,6 +310,11 @@ using UnityEngine.Pool;
         {
             DestroyAllWords();
             selectedLetter.Clear();
+            foreach (var obj in jokerLetters)
+            {
+                Destroy(obj);
+            }
+            jokerLetters.Clear();
             grid.setAllEmpty();
             randomL.Reset();
             crossLetter = 0;
@@ -375,7 +380,7 @@ using UnityEngine.Pool;
         {
             Messenger.Broadcast(GameEvent.PLAY_JOKER_CALISIRKEN);
             obj.transform.GetChild(1).gameObject.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.2f);
             
               int[] pos = obj.GetComponent<Letter>().GetCellIndex();
                     for (int i = 0; i < 6; i++)
@@ -429,6 +434,7 @@ using UnityEngine.Pool;
             int row1 = indx[0];
             grid.cellFullness[indx[0]][indx[1]] = false;
             GridObjects[indx[0]][indx[1]] = null;
+            obj.SetActive(false);
             Reposition(row1);
             Destroy(obj);
         }
@@ -465,12 +471,20 @@ using UnityEngine.Pool;
             {
                 if (obj != null)
                 {
-                    int[] pos = obj.GetComponent<Letter>().GetCellIndex();
+                    if (obj.GetComponent<Letter>().GetisJokerLetter())
+                    {
+                      Destroy(obj);    
+                    
+                    }
+                    
+                    else{
+                        int[] pos = obj.GetComponent<Letter>().GetCellIndex();
                     obj.transform.GetChild(1).gameObject.SetActive(false);
                     obj.SetActive(false);
                     obj.GetComponent<Letter>().ResetLetter();
                     queue.Enqueue(obj);
                     objects[pos[1]] = null;
+                    }
                 }
             }
             
