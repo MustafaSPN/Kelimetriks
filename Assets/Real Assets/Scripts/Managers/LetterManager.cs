@@ -31,7 +31,7 @@ using Random = UnityEngine.Random;
             selectedLetter = new List<GameObject>();
             jokerLetters = new List<GameObject>();
             for (int i = 0; i < 49; i++)
-            {
+            { 
                 GameObject obj = Instantiate(prefab,parent.transform);
                 obj.SetActive(false);
                 queue.Enqueue(obj);
@@ -217,7 +217,13 @@ using Random = UnityEngine.Random;
 
         public void ShakeLetters(GameObject obje)
         {
-            obje.GetComponent<Transform>().DOShakeScale(0.3f);
+            obje.GetComponent<Transform>().DOShakeScale(0.3f).OnPlay((() =>
+            {
+                obje.GetComponent<Letter>().isClickable = false;
+            })).OnComplete((() =>
+            {
+                obje.GetComponent<Letter>().isClickable = true;
+            }));
             Messenger.Broadcast(GameEvent.PLAY_HARFLER_BINGILDARKEN);
         }
 
