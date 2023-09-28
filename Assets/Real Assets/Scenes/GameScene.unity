@@ -260,7 +260,6 @@ MonoBehaviour:
   prefab: {fileID: 2259696236490591578, guid: c825ab3495bba481eb210ea098eff81a, type: 3}
   parent: {fileID: 1081502100}
   coinText: {fileID: 751935545}
-  target: {fileID: 1144538696}
   coinCount: 0
 --- !u!1 &23189084
 GameObject:
@@ -2177,9 +2176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae52913624f14d4ab9fa0d7f683f3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptableUser: {fileID: 11400000, guid: 57a95a4f9a05740c9acd7f8cc876c9de, type: 2}
   leaderboard: {fileID: 11400000, guid: 23f17e60a47a249ffa59df7f19796cac, type: 2}
   LeaderboardData: []
-  scriptableUser: {fileID: 11400000, guid: 57a95a4f9a05740c9acd7f8cc876c9de, type: 2}
 --- !u!4 &605624967
 Transform:
   m_ObjectHideFlags: 0
