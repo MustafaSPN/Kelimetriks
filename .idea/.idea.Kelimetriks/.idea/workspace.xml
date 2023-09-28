@@ -6,52 +6,39 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/AdsInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/AdsInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocGen.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocGen.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocumentationSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocumentationSettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleBaseClass.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleBaseClass.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleClass.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleClass.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GoogleService-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleService-Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Ads Doc.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Ads Doc.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Auth Doc.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Auth Doc.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Database Doc.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Database Doc.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/InLetterObjects Doc.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/InLetterObjects Doc.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Managers Doc.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Managers Doc.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/ScriptableObjects Doc.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/ScriptableObjects Doc.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/UI.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/UI.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Letters.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Letters.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/InterstitialAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/InterstitialAds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/RewardedAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/RewardedAds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/AuthManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/AuthManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UserEmail.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Auth/UserEmail.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons/CheckButton.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons/CheckButton.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons/CrossButton.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons/CrossButton.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons/OnClickPauseButton.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Buttons/OnClickPauseButton.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Database/UsernameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Database/UsernameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Database/WordCountData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Database/WordCountData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/Letter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/Letter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/LetterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/LetterMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/OnClick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/OnClick.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/OnClickJokerLetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/InLetterObjectsScripts/OnClickJokerLetter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/CoinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/CoinManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LeaderboardManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LeaderboardManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManagerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/LetterManagerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/MusicManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/ScoreManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/SoundEffectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/SoundEffectManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/WordManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/WordManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Messenger/GameEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/AuthUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/AuthUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/ColorAssets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/ColorAssets.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Grid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/LeaderboardDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/LeaderboardDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Random Letters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Random Letters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/RandomColor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/RandomColor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Shape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Shape.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/WordData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/WordData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Words.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/ScriptableObjects/Words.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/FPSCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/FPSCounter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/InGamePanelUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/InGamePanelUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/LocalButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/LocalButtons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/Rescale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/Rescale.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/ScrollView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/ScrollView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/UIManagerInGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/UI/UIManagerInGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +168,7 @@
       <workItem from="1695628529665" duration="14941000" />
       <workItem from="1695735573136" duration="3163000" />
       <workItem from="1695801651085" duration="10707000" />
+      <workItem from="1695906826101" duration="2174000" />
     </task>
     <servers />
   </component>

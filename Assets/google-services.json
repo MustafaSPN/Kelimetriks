@@ -8,42 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:999554746956:android:f9fd239513e43fa78502e9",
-        "android_client_info": {
-          "package_name": "com.DefaultCompany.com.unity.template.mobile2D"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "999554746956-tu311arrh83j10pm1gasm6gd28n9avuj.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBDg69VQTkrH9j8A2HgvG8hD4jgVQra2gw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "999554746956-8og44be9uq6ijge0goi37mbdqlbeuta6.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "999554746956-f6q08ib0t0oabm61vlqlhnssgdionmap.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.sepen.kelimetriks"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:999554746956:android:3d5faffefbf38ee88502e9",
         "android_client_info": {
           "package_name": "com.sepen.kelimetriks"

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>999554746956-sh3eeblbru9udtk8qn615jgroii27fs6.apps.googleusercontent.com</string>
+	<string>999554746956-f6q08ib0t0oabm61vlqlhnssgdionmap.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.999554746956-sh3eeblbru9udtk8qn615jgroii27fs6</string>
+	<string>com.googleusercontent.apps.999554746956-f6q08ib0t0oabm61vlqlhnssgdionmap</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCK0OEtEye7uPz4BYTOn88aeLzlS0-kIL0</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.DefaultCompany.com.unity.template.mobile2D</string>
+	<string>com.sepen.kelimetriks</string>
 	<key>PROJECT_ID</key>
 	<string>kelimetriks</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:999554746956:ios:8794df282baccf8c8502e9</string>
+	<string>1:999554746956:ios:320fbafe532b1c588502e9</string>
 	<key>DATABASE_URL</key>
 	<string>https://kelimetriks-default-rtdb.firebaseio.com</string>
 </dict>
