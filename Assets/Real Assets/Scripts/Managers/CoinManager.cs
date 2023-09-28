@@ -46,8 +46,8 @@ public class CoinManager : MonoBehaviour
         }
         else
         {
-            coinText.transform.DOScale(1.5f, 0.2f);
-            coinText.transform.DOScale(1f, 0.3f);
+            coinText.GetComponent<RectTransform>().DOShakeScale(0.5f);
+                
         }
     }
 
