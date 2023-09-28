@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
@@ -17,9 +14,6 @@ public class MusicManager : MonoBehaviour
     {
         source.Stop();
     }
-    
-    
-    
     
     private void OnEnable()
     {

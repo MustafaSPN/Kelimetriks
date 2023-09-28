@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Firebase;
 using Firebase.Database;
 using Firebase.Extensions;
-using Unity.Collections;
 using UnityEngine;
 
 public class WordCountData : MonoBehaviour
@@ -14,6 +10,7 @@ public class WordCountData : MonoBehaviour
     private DatabaseReference reference;
     private Dictionary<String, int> wordData = new Dictionary<string, int>();
     DataSnapshot snapshot;
+    
     private void Start()
     {
         reference = FirebaseDatabase.DefaultInstance.GetReference("WordCountData");
@@ -34,54 +31,42 @@ public class WordCountData : MonoBehaviour
     
     public void SaveWordCountDataToDatabase(string word)
     {
-        
-        
             int count = wordData[word];
             if (snapshot.Child(word).Value !=null)
             {
                 count += int.Parse(snapshot.Child(word).Value.ToString());
             }
             reference.Child(word).SetValueAsync(count);
-        
-        
     }
 
     public void PullWordCountDataFromDatabase()
     {
         reference.GetValueAsync().ContinueWithOnMainThread(task =>
         {
-            if (task.IsCompleted)
+            if (!task.IsCompleted) return;
+            snapshot = task.Result;
+            foreach (var obj in snapshot.Children)
             {
-                snapshot = task.Result;
-                foreach (var obj in snapshot.Children)
+                int count = int.Parse(obj.Value.ToString());
+                switch (count)
                 {
-                    int count = int.Parse(obj.Value.ToString());
-                    if (count < 10)
-                    {
+                    case < 10:
                         wordObject.AddWordCountDataSegment1(obj.Key);
-                        
-                    }else if (count < 20)
-                    {
+                        break;
+                    case < 20:
                         wordObject.AddWordCountDataSegment2(obj.Key);
-                    }else if (count<50)
-                    {
+                        break;
+                    case < 50:
                         wordObject.AddWordCountDataSegment3(obj.Key);
-                    }
-                    else
-                    {
+                        break;
+                    default:
                         wordObject.AddWordCountDataSegment4(obj.Key);
-                    }
-                    
-                    
+                        break;
                 }
-
-
             }
         });
-
     }
     
-
     private void OnEnable()
     {
         Messenger<string>.AddListener(GameEvent.CORRECT_WORD,AddWordToWordDataDictionary);
@@ -92,6 +77,5 @@ public class WordCountData : MonoBehaviour
     {
         Messenger<string>.RemoveListener(GameEvent.CORRECT_WORD,AddWordToWordDataDictionary);
         Messenger.RemoveListener(GameEvent.START_GAME,PullWordCountDataFromDatabase);
-
     }
 }

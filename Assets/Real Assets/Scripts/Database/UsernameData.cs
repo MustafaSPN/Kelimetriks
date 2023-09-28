@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
@@ -9,6 +6,7 @@ using UnityEngine;
 public class UsernameData : MonoBehaviour
 {
     private DatabaseReference reference;
+    private string username;
     
     void Start()
     {
@@ -19,8 +17,6 @@ public class UsernameData : MonoBehaviour
             reference = FirebaseDatabase.DefaultInstance.RootReference;
         });
     }
-
-    private string username;
 
     private void SetUsername(string usern)
     {
@@ -33,10 +29,8 @@ public class UsernameData : MonoBehaviour
         Debug.Log($"{user.UserId}");
         Debug.Log($"(UsernameData) username sent to database.");
         reference.Child("users").Child(user.UserId).SetValueAsync(username);
-
     }
-    
-    
+
     private void OnEnable()
     {
         Messenger<string>.AddListener(GameEvent.SENDING_USERNAME,SetUsername);

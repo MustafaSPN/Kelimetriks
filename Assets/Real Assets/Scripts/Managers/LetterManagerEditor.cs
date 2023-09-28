@@ -1,9 +1,5 @@
 #if UNITY_EDITOR
 
-
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,6 +11,7 @@ public class LetterManagerEditor : Editor
     private int number2;
     private int result;
 
+    //Create editor button and features
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
@@ -22,20 +19,6 @@ public class LetterManagerEditor : Editor
         {
            Messenger.Broadcast(GameEvent.GENERATE_LETTER);
         }
-        //
-        // number1 = EditorGUILayout.IntField("X:", number1);
-        //
-        // number2 = EditorGUILayout.IntField("Y:", number2);
-        //
-        // bool isFull = LetterManager.cell
-        // // Toplam sonucunu metin olarak göster
-        // EditorGUILayout.LabelField("isFull:", isFull.ToString());
-        //
-        // if (GUILayout.Button("Calculate"))
-        // {
-        //     Debug.Log("isFull: " + isFull);
-        // }
     }
-    
 }
 #endif

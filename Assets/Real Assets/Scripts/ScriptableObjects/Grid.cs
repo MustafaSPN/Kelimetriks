@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,11 +7,8 @@ public class Grid : ScriptableObject
 {
     [Serialize] public Vector2[][] cellPosition;
     [SerializeField] public bool[][] cellFullness;
-    
     public int width;
     public int height;
-
-  
     public float startX;
     public float startY;
     public float offset = 0.65f;
@@ -50,31 +45,26 @@ public class Grid : ScriptableObject
 
     public void setAllEmpty()
     {
-        for (int i  = 0; i  < cellFullness.Length; i ++)
+        foreach (var t in cellFullness)
         {
-            for (int j = 0; j < cellFullness[i].Length; j++)
+            for (int j = 0; j < t.Length; j++)
             {
-                cellFullness[i][j] = false;
+                t[j] = false;
             }
-        }   
+        }
     }
-
 
     public int[] TargetCell(int column)
     {
         int[] targetcell = new int[2];
         for (int i = 0; i < cellPosition[column].Length; i++)
         {
-            if (!cellFullness[column][i])
-            {
-                cellFullness[column][i] = true;
-                targetcell[0] = column;
-                targetcell[1] = i;
-                return targetcell;
-
-            }
+            if (cellFullness[column][i]) continue;
+            cellFullness[column][i] = true;
+            targetcell[0] = column;
+            targetcell[1] = i;
+            return targetcell;
         }
-
         return targetcell;
     }
 }

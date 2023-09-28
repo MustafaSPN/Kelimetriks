@@ -1,16 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class FPSCounter : MonoBehaviour
 {
-
     public int avgFrameRate;
     [SerializeField] TMP_Text display_Text;
-
-    
 
     public void Update ()
     {
@@ -19,5 +13,4 @@ public class FPSCounter : MonoBehaviour
         avgFrameRate = (int)current;
         display_Text.text = avgFrameRate.ToString() + " FPS";
     }
-
 }

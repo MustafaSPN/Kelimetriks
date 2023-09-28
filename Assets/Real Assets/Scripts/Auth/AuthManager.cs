@@ -1,26 +1,21 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using Firebase;
 using Firebase.Analytics;
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Extensions;
-using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class AuthManager : MonoBehaviour
 {
+    [SerializeField]private AuthUser scriptableUser;
     public DependencyStatus dependencyStatus;
     private FirebaseAuth auth;
     private FirebaseUser user;
     private DatabaseReference reference;
-    [SerializeField]private AuthUser scriptableUser;
     private FirebaseApp app;
-
-
+    
     private void Awake()
     {
 #if UNITY_IOS
@@ -29,11 +24,9 @@ public class AuthManager : MonoBehaviour
 #else
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 240;
-#endif 
-
+#endif
         Debug.Log($"(Auth)Awake functions called.");
         DontDestroyOnLoad(this);
-        
         QualitySettings.vSyncCount = 1;
         Application.targetFrameRate = 120;
     }
@@ -42,7 +35,6 @@ public class AuthManager : MonoBehaviour
     {
         StartCoroutine(CheckAndFixDependancies());
         Messenger.Broadcast(GameEvent.DONT_SHOW_WELCOME_SCENE);
-
     }
 
     private IEnumerator CheckAndFixDependancies()
@@ -59,6 +51,7 @@ public class AuthManager : MonoBehaviour
             Debug.Log($"(Auth)Could not resolve all Firebase dependencies: {dependencyStatus}");
         }
     }
+    
     private void InitializeFirebase()
     {
         Debug.Log($"(Auth)InitializeFirebase functions called.");
@@ -74,7 +67,6 @@ public class AuthManager : MonoBehaviour
             reference = FirebaseDatabase.DefaultInstance.RootReference;
             auth.StateChanged += AuthStateChanged;
             AuthStateChanged(this,null);
-            
             StartCoroutine(CheckAutoLogin());
         });
         
@@ -97,39 +89,32 @@ public class AuthManager : MonoBehaviour
         }
         else
         {
-        Messenger.Broadcast(GameEvent.SHOW_WELCOME_SCENE);
-
+            Messenger.Broadcast(GameEvent.SHOW_WELCOME_SCENE);
         }
-        
     }
 
     private void AutoLogin()
-    {Debug.Log($"Autologin called");
+    {
+        Debug.Log($"Autologin called");
         FirebaseAnalytics.LogEvent("AutoLogin");
-        if (user!=null)
-        {
-            Debug.Log($"Autologin called2");
-            scriptableUser.InitializeUser(auth,app);
-            GoGameScene();
-        }
+        if (user == null) return;
+        Debug.Log($"Autologin called2");
+        scriptableUser.InitializeUser(auth,app);
+        GoGameScene();
     }
-    
-    
+
     private void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
-        if (auth.CurrentUser!=null)
+        if (auth.CurrentUser == null) return;
+        bool signedIn = user != auth.CurrentUser && auth.CurrentUser != null;
+        if (!signedIn && user!=null)
         {
-            bool signedIn = user != auth.CurrentUser && auth.CurrentUser != null;
-            if (!signedIn && user!=null)
-            {
-                Debug.Log($"Signed Out.");
-            }
-
-            user = auth.CurrentUser;
-            if (signedIn)
-            {
-                Debug.Log($"Signed In: {user.UserId}");
-            }
+            Debug.Log($"Signed Out.");
+        }
+        user = auth.CurrentUser;
+        if (signedIn)
+        {
+            Debug.Log($"Signed In: {user.UserId}");
         }
     }
 
@@ -148,20 +133,14 @@ public class AuthManager : MonoBehaviour
             AuthResult result = task.Result;
             Debug.LogFormat("(Auth)User signed in successfully: {0} ({1})",
                 result.User.DisplayName, result.User.UserId);
-            
             scriptableUser.InitializeUser(auth,app);
             GoGameScene();
-
         });
-
-
-
     }
 
     private void Register(string _email, string _password,string _username)
     {
         Debug.Log($"(Auth)Login function called email: {_email}, password:{_password}, username:{_username}.");
-
         auth.CreateUserWithEmailAndPasswordAsync(_email, _password).ContinueWithOnMainThread(task =>
             {
                 if (task.IsCanceled)
@@ -175,7 +154,6 @@ public class AuthManager : MonoBehaviour
                     Debug.LogError("(Auth)CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
                     return;
                 }
-                
                 // Firebase user has been created.
                 AuthResult result = task.Result;
                 Debug.LogFormat("(Auth)Firebase user created successfully: {0} ({1})",

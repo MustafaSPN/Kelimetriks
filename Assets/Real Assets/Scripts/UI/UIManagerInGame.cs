@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,7 +24,6 @@ public class UIManagerInGame : MonoBehaviour
     private void Start()
     {
         InitializeLeaderboardText();
-
     }
 
     public void StartGame()
@@ -35,7 +31,6 @@ public class UIManagerInGame : MonoBehaviour
         Messenger.Broadcast(GameEvent.START_GAME);
         holder.SetActive(false);
         isInGame = true;
-        
     }
 
     public void GameOver()
@@ -51,13 +46,9 @@ public class UIManagerInGame : MonoBehaviour
             GameObject pre = Instantiate(prefab,parent.transform);
             pre.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -100 * i);
             leaderboardTexts.Add(pre);
-            
         }
-
         parent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, leaderboardTexts.Count*100 + 100);
-
     }
-    
     
     public void SetLeaderboardText()
     {
@@ -68,45 +59,26 @@ public class UIManagerInGame : MonoBehaviour
                 leaderboardData.leaderboardInfo[i].score.ToString();
         }
         username.SetText(user.getUsername());
-
-       
     }
 
     public void OnValueChangedBackgroundMusicToggle()
     {
-        if (backgroundMusicToggle.isOn)
-        {
-            Messenger.Broadcast(GameEvent.PLAY_BACKGROUND_MUSIC);
-        }
-        else
-        {
-            Messenger.Broadcast(GameEvent.STOP_BACKGROUND_MUSIC);
-        }
-
-
-
+        Messenger.Broadcast(backgroundMusicToggle.isOn
+            ? GameEvent.PLAY_BACKGROUND_MUSIC
+            : GameEvent.STOP_BACKGROUND_MUSIC);
     }
+    
     public void OnValueChangedSoundEffectToggle()
     {
-        if (soundEffectToggle.isOn)
-        {
-            Messenger<bool>.Broadcast(GameEvent.PLAY_SOUND_EFFECTS,true);
-        }
-        else
-        {
-            Messenger<bool>.Broadcast(GameEvent.PLAY_SOUND_EFFECTS,false);
-        }
-
-
-
+        Messenger<bool>.Broadcast(GameEvent.PLAY_SOUND_EFFECTS, soundEffectToggle.isOn);
     }
-    
-    
+
     public void LogoutButton()
     {
         Messenger.Broadcast(GameEvent.LOG_OUT);
         SceneManager.LoadScene(0);
     }
+    
     public void OpenSettingsPanel()
     {
         settingsPanel.gameObject.SetActive(true);
@@ -116,13 +88,13 @@ public class UIManagerInGame : MonoBehaviour
     {
         settingsPanel.gameObject.SetActive(false);
     }
+    
     public void OpenPausePanel()
     {
         if (isInGame)
         {
             pausePanel.gameObject.SetActive(true);    
         }
-        
     }
 
     public void ClosePausePanel()
@@ -130,7 +102,6 @@ public class UIManagerInGame : MonoBehaviour
         holder.SetActive(false);
         pausePanel.gameObject.SetActive(false);
         Messenger.Broadcast(GameEvent.CONTINUE_GAME);
-
     }
 
     public void ExitGame()
@@ -139,7 +110,6 @@ public class UIManagerInGame : MonoBehaviour
         pausePanel.SetActive(false);
         isInGame = false;
     }
-    
     
     public void PressedLeaderboardButton()
     {
@@ -167,6 +137,7 @@ public class UIManagerInGame : MonoBehaviour
      Messenger.Broadcast(GameEvent.GAME_OVER);
      adsPanel.SetActive(false);
     }
+    
     private void OnEnable()
     {
         Messenger.AddListener(GameEvent.PAUSE_GAME,OpenPausePanel);

@@ -1,10 +1,9 @@
-    using System;
     using System.Collections.Generic;
-    using UnityEditor.Localization.Plugins.XLIFF.V12;
     using UnityEngine;
     using Random = UnityEngine.Random;
 
     [CreateAssetMenu(fileName = "WordAssets", menuName = "ScriptableObjects/WordsAssetClassBase")]
+
     public class Words : ScriptableObject
     {
         [SerializeField] public TextAsset textFile;
@@ -16,8 +15,6 @@
         public List<string> WordCountList3;
         public int segment = 0;
         public int count = 0;
-
-
 
         public void InitializeWords()
         {
@@ -31,50 +28,35 @@
             WordCountLists.Add(WordCountList1);
             WordCountLists.Add(WordCountList2);
             WordCountLists.Add(WordCountList3);
-
-            
-            
-            
-            if (textFile != null)
+            if (textFile == null) return;
+            string allText = textFile.text;
+            string[] lines = allText.Split('\n');
+            foreach (string line in lines)
             {
-                string allText = textFile.text;
-                string[] lines = allText.Split('\n');
-
-
-                foreach (string line in lines)
+                char firstLetter = line[0];
+                int wordLength = line.Length;
+                if (!WordList.ContainsKey(firstLetter))
                 {
-
-                    char firstLetter = line[0];
-                    int wordLength = line.Length;
-
-                    if (!WordList.ContainsKey(firstLetter))
-                    {
-                        WordList[firstLetter] = new Dictionary<int, HashSet<string>>();
-                    }
-
-                    if (!WordList[firstLetter].ContainsKey(wordLength))
-                    {
-                        WordList[firstLetter][wordLength] = new HashSet<string>();
-                    }
-
-                    WordList[firstLetter][wordLength].Add(line);
+                    WordList[firstLetter] = new Dictionary<int, HashSet<string>>();
                 }
-                
-                WordList['Ğ'] = new Dictionary<int, HashSet<string>>();
-                for (int i = 0; i < 6; i++)
+                if (!WordList[firstLetter].ContainsKey(wordLength))
                 {
-                    WordList['Ğ'][i] = new HashSet<string>();
+                    WordList[firstLetter][wordLength] = new HashSet<string>();
                 }
+                WordList[firstLetter][wordLength].Add(line);
             }
-
+            WordList['Ğ'] = new Dictionary<int, HashSet<string>>();
+            for (int i = 0; i < 6; i++)
+            {
+                WordList['Ğ'][i] = new HashSet<string>();
+            }
         }
 
         public bool SearchWord(string word)
         {
-
             char f = word[0];
-            int l = word.Length;
-             bool isExist = WordList[f][l].Contains(word);
+            int l = word.Length; 
+            bool isExist = WordList[f][l].Contains(word);
             return isExist;
         }
 
@@ -85,37 +67,33 @@
             string[] randomWords = new string[hashWord.Count];
             hashWord.CopyTo(randomWords);
             random = randomWords[Random.Range(0, randomWords.Length)];
-
-
-                if (count % 2 == 0)
-                {
+            if (count % 2 == 0)
+            {
                     
                   
-                }
-                else  if (WordCountLists[segment].Count != 0)
+            }
+            else  if (WordCountLists[segment].Count != 0)
+            {
+                switch (segment)
                 {
-                    switch (segment)
-                    {
-                        case 0:
-                            random = WordCountList0[Random.Range(0, WordCountList0.Count)];
-                            WordCountList0.Remove(random);
-                            break;
-                        case 1:
-                            random = WordCountList1[Random.Range(0, WordCountList1.Count)];
-                            WordCountList1.Remove(random);
-                            break;
-                        case 2:
-                            random = WordCountList2[Random.Range(0, WordCountList2.Count)];
-                            WordCountList2.Remove(random);
-                            break;
-                        case 3:
-                            random = WordCountList3[Random.Range(0, WordCountList3.Count)];
-                            WordCountList3.Remove(random);
-                            break;
-
-                    }
+                    case 0:
+                        random = WordCountList0[Random.Range(0, WordCountList0.Count)];
+                        WordCountList0.Remove(random);
+                        break;
+                    case 1:
+                        random = WordCountList1[Random.Range(0, WordCountList1.Count)];
+                        WordCountList1.Remove(random);
+                        break;
+                    case 2:
+                        random = WordCountList2[Random.Range(0, WordCountList2.Count)];
+                        WordCountList2.Remove(random);
+                        break;
+                    case 3:
+                        random = WordCountList3[Random.Range(0, WordCountList3.Count)];
+                        WordCountList3.Remove(random);
+                        break;
                 }
-            
+            }
             count++;
             return random;
         }
@@ -124,6 +102,7 @@
         {
             WordCountList0.Add(word);
         }
+        
         public void AddWordCountDataSegment2(string word)
         {
             WordCountList1.Add(word);

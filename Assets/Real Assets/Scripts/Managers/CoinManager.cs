@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -9,10 +7,10 @@ public class CoinManager : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject parent;
-    public Queue<GameObject> queue = new Queue<GameObject>();
     [SerializeField] private TMP_Text coinText;
-    [SerializeField] private RectTransform target;
+    public Queue<GameObject> queue = new Queue<GameObject>();
     public int coinCount;
+    
     private void Start()
     {
         coinText.text = "0";
@@ -22,10 +20,8 @@ public class CoinManager : MonoBehaviour
             obj.SetActive(false);
             queue.Enqueue(obj);
         }
-
     }
     
-
     public void CreateAndMove(Transform startPos)
     {
         GameObject obj = queue.Dequeue();
@@ -39,8 +35,6 @@ public class CoinManager : MonoBehaviour
                 coinCount++;
                 coinText.text = coinCount.ToString();
             }));
-
-       
     }
     
     public void CoinButton(){

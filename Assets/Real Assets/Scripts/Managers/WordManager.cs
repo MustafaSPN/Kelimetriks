@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +10,21 @@ public class WordManager : MonoBehaviour
           wordText.text = "";
     }
 
+    public void ReturnWord()
+    {
+        Messenger<string>.Broadcast(GameEvent.RETURN_WORD,wordText.text);
+    }
+    
+    public void CancelWord()
+    {
+        wordText.text = "";
+    }
+
+    public void AddLetterToWorld(char ch)
+    {
+        wordText.text += ch.ToString();
+    }
+    
     private void OnEnable()
     {
         Messenger<char>.AddListener(GameEvent.ADD_LETTER_TO_WORD,AddLetterToWorld);
@@ -29,19 +41,5 @@ public class WordManager : MonoBehaviour
         Messenger.RemoveListener(GameEvent.REQUEST_WORD,ReturnWord);
         Messenger.RemoveListener(GameEvent.GAME_OVER,CancelWord);
         Messenger.RemoveListener(GameEvent.REWARDED_ADS,CancelWord);
-    }
-
-    public void ReturnWord()
-    {
-        Messenger<string>.Broadcast(GameEvent.RETURN_WORD,wordText.text);
-    }
-    public void CancelWord()
-    {
-        wordText.text = "";
-    }
-
-    public void AddLetterToWorld(char ch)
-    {
-        wordText.text += ch.ToString();
     }
 }

@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Random = UnityEngine.Random;
 
 public class LetterMovement : MonoBehaviour
 {
@@ -13,8 +9,6 @@ public class LetterMovement : MonoBehaviour
     {
         SetClickable(false);
         transform.localPosition = startPosition;
-       
-
         if (currentTween != null && currentTween.IsActive())
         {
             // Eğer bir tween hala çalışıyorsa, ikinci tweeni başlatma
@@ -37,5 +31,4 @@ public class LetterMovement : MonoBehaviour
     {
         GetComponent<Letter>().SetisClickable(b);
     }
-
 }

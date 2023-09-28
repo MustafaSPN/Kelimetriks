@@ -1,9 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LeaderboardData",menuName = "ScriptableObjects/LeaderboardDatabase")]
+
 public class LeaderboardDatabase : ScriptableObject
 {
     public List<PlayerData> leaderboardInfo;
@@ -12,6 +12,7 @@ public class LeaderboardDatabase : ScriptableObject
     {
         leaderboardInfo.Clear();
     }
+    
     public void AddUserData(List<PlayerData> userData)
     {
         leaderboardInfo = userData;
@@ -21,9 +22,6 @@ public class LeaderboardDatabase : ScriptableObject
     {
         return leaderboardInfo;
     }
-
-
-
     }
 
     [Serializable]
@@ -37,7 +35,6 @@ public class LeaderboardDatabase : ScriptableObject
             name = n;
             score = s;
         }
-        
     }
 
 

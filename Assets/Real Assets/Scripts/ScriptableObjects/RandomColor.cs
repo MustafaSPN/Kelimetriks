@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Pastel Colors",menuName = "ScriptableObjects/PastelColors")]
@@ -21,7 +19,6 @@ public class PastelColors : ScriptableObject
       colors[8] = ColorAssets.PASTEL_9;
       colors[9] = ColorAssets.PASTEL_10;
       colors[10] = ColorAssets.PASTEL_11;
-      
    }
 
    public Color GenerateRandomColor()

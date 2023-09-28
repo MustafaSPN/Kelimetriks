@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Advertisements;
  
 public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
@@ -74,9 +72,9 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     }
  
     public void OnUnityAdsShowStart(string adUnitId) { }
+    
     public void OnUnityAdsShowClick(string adUnitId) { }
- 
-  
+
     private void OnEnable()
     {
         Messenger.AddListener(GameEvent.SHOW_ADS,ShowAd);

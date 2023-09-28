@@ -6,10 +6,10 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] string _androidGameId;
     [SerializeField] string _iOSGameId;
     [SerializeField] bool _testMode = true;
-    private string _gameId;
     [SerializeField] private RewardedAds rewardedAdsButton;
     [SerializeField] private InterstitialAds interstitialAds;
- 
+    private string _gameId;
+    
     void Awake()
     {
         InitializeAds();
@@ -29,14 +29,12 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
             Advertisement.Initialize(_gameId, _testMode, this);
         }
     }
-
- 
+    
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
         rewardedAdsButton.LoadAd();
         interstitialAds.LoadAd();
-        
     }
  
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)

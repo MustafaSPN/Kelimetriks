@@ -1,16 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
     public int score;
+    
     void Start()
     {
        ResetScore();
@@ -20,11 +16,9 @@ public class ScoreManager : MonoBehaviour
     {
         score = 0;
         scoreText.text = score.ToString();
-
     }
     private void AddScore(int scr)
     {
-        //Messenger.Broadcast(GameEvent.PLAY_SCORE_RISING);
         scoreText.text = score.ToString();
         scoreText.GetComponent<Transform>().DOScale(1.4f, 0.3f).OnComplete((() =>
         {
@@ -35,17 +29,14 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = score.ToString();
         });
         score += scr;
-        
         Messenger<int>.Broadcast(GameEvent.SEND_SCORE,score);
     }
 
     private void SendScoreToLeaderboard()
-    {        Debug.Log("score sent to leaderboard");
-
+    {        
+        Debug.Log("score sent to leaderboard");
         Messenger<int>.Broadcast(GameEvent.SEND_SCORE_TO_LEADERBOARD,score);
     }
-    
-    
     
     private void OnEnable()
     {

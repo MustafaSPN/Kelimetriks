@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class ColorAssets
 {
+    //Background Colors
     public static readonly Color BACKGROUND = new Color((185f/255f),(180f/255f),(199f/255f));
     public static readonly Color HARF_ARKA = new Color((63f/255f),(56f/255f),(80f/255f));
     public static readonly Color KELIME_ARKA = new Color((250f/255f),(240f/255f),(230f/255f));
     
+    //Letter Back Colors
     public static readonly Color PASTEL_1 = new Color((255f/255f),(214f/255f),(165f/255f));
     public static readonly Color PASTEL_2 = new Color((255f/255f),(222f/255f),(250f/255f));
     public static readonly Color PASTEL_3 = new Color((215f/255f),(192f/255f),(174f/255f));

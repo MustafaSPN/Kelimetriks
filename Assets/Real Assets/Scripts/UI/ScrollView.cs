@@ -1,13 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-
-
-
 
 public class ScrollView : MonoBehaviour
 {
@@ -27,6 +20,7 @@ public class ScrollView : MonoBehaviour
     private Vector2 endPos;
     public ScreenIndex currentIndex;
     public bool isMoov = false;
+    
     void Start()
     {
         content.sizeDelta = new Vector2(3*canvas.sizeDelta.x, 0);
@@ -49,28 +43,27 @@ public class ScrollView : MonoBehaviour
         {
             currentIndex = ScreenIndex.right;
         }
-       
 
-        if (Input.GetMouseButtonUp(0) && !isMoov)
+        if (!Input.GetMouseButtonUp(0) || isMoov) return;
+        switch (currentIndex)
         {
-            switch (currentIndex)
-            {
-                case ScreenIndex.mid: content.DOAnchorPosX(0, 0.2f).OnComplete(() =>
-                    {
-                        isMoov = false;
-                    });
-                    break;
-                case ScreenIndex.left: content.DOAnchorPosX(canvas.sizeDelta.x, 0.2f).OnComplete(() =>
-                    {
-                        isMoov = false;
-                    });
-                    break;
-                case ScreenIndex.right: content.DOAnchorPosX(-canvas.sizeDelta.x, 0.2f).OnComplete(() =>
-                    {
-                        isMoov = false;
-                    });
-                    break;
-            }
+            case ScreenIndex.mid: content.DOAnchorPosX(0, 0.2f).OnComplete(() =>
+                {
+                    isMoov = false;
+                });
+                break;
+            case ScreenIndex.left: content.DOAnchorPosX(canvas.sizeDelta.x, 0.2f).OnComplete(() =>
+                {
+                    isMoov = false;
+                });
+                break;
+            case ScreenIndex.right: content.DOAnchorPosX(-canvas.sizeDelta.x, 0.2f).OnComplete(() =>
+                {
+                    isMoov = false;
+                });
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 

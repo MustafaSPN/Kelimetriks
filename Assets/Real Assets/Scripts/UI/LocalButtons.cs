@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
@@ -14,7 +12,6 @@ public class LocalButtons : MonoBehaviour
         {
             StartCoroutine(SetLocale(locale));
         }
-        
     }
 
     public void Turkish()
@@ -33,5 +30,4 @@ public class LocalButtons : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[local];
         PlayerPrefs.SetInt("KELIMETRIKS_LOCALE_SETTINGS",local);
     }
-    
 }

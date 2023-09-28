@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Letter : MonoBehaviour
@@ -13,19 +9,16 @@ public class Letter : MonoBehaviour
     public bool isCrossLetter = false;
     public bool isJokerLetter = false;
 
-
     public void SetLetterValues(int x, int y,int scre ,char lettr)
     {
         indexCell[0] = x;
         indexCell[1] = y;
         letter = lettr;
         score = scre;
-        
         if (isCrossLetter && indexCell[1]==0)
         {
             Messenger<GameObject>.Broadcast(GameEvent.DESTROY_CROSS_LETTERS,this.gameObject);
         }
-        
     }
 
     public int[] GetCellIndex()
@@ -59,7 +52,6 @@ public class Letter : MonoBehaviour
         {
             isClickable = b;    
         }
-        
     }
 
     public bool GetIsClickable()

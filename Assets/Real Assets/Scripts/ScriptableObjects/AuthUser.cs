@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Firebase;
 using Firebase.Auth;
 using UnityEngine;
@@ -25,7 +23,6 @@ public class AuthUser : ScriptableObject
         auth = null;
         user = null;
         username = null;
-
     }
 
     public string GetUserId()

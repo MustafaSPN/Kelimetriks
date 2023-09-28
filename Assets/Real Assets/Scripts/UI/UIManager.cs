@@ -1,43 +1,35 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     public GameObject welcomePanel;
     public GameObject loginPanel;
     public GameObject registerPanel;
     public GameObject GamePanel;
-
     public TMP_InputField loginEmail;
     public TMP_InputField loginPassword;
-
     public TMP_InputField registerEmail;
     public TMP_InputField registerName;
     public TMP_InputField registerPassword1;
     public TMP_InputField registerPassword2;
-
     private DateTime today;
     private string email;
     private string password;
     private int todayInt;
     private TMP_InputField[] inputs;
-    private void Start() { 
-        
+    
+    private void Start()
+    { 
             welcomePanel.SetActive(true);
             loginPanel.SetActive(false);
             registerPanel.SetActive(false);
-
             inputs = new[]
         {
             loginEmail, loginPassword, registerEmail, registerName, registerPassword1, registerPassword2
         };
-
-
     }
 
     private void Disappear()
@@ -68,19 +60,13 @@ public class UIManager : MonoBehaviour
         {
             input.text = string.Empty;
         }
-        
     }
 
     public void LoginButtonPressedForLogin()
     {
-        
         Messenger<string, string>.Broadcast(GameEvent.LOG_IN, loginEmail.text, loginPassword.text);
-        
     }
 
-
-
-   
     public void RegisterButtonPressedForRegister()
     {
         if (registerPassword1.text == registerPassword2.text)
@@ -91,7 +77,6 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Passwords are not match.");
         }
-
     }
 
     public IEnumerator AutoLogIn()
@@ -103,7 +88,6 @@ public class UIManager : MonoBehaviour
     public void GoGameButton()
     {
         Messenger<string,string>.Broadcast(GameEvent.LOG_IN,email,password);
-        
     }
 
     public void GamePassRegisterButton()

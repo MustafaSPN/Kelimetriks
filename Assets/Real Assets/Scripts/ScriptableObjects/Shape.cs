@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "ShapeObject",menuName = "ScriptableObjects/Shapes")]
 
@@ -11,5 +9,4 @@ public class Shape : ScriptableObject
     {
         return shape[Random.Range(0, 3)];
     }
-
 }
