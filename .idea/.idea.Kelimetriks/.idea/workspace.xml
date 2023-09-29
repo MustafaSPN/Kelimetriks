@@ -6,39 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="43e0d299-9764-49cc-9c01-70c502af9ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Kelimetriks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocGen.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocGen.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocumentationSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/DocumentationSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleBaseClass.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleBaseClass.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleClass.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DocGen/Example/ExampleClass.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleService-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleService-Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Ads Doc.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Ads Doc.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Auth Doc.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Auth Doc.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Database Doc.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Database Doc.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/InLetterObjects Doc.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/InLetterObjects Doc.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Managers Doc.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/Managers Doc.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/ScriptableObjects Doc.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/ScriptableObjects Doc.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/UI.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Doc/UI.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Letters.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/ScriptableObjects/Letters.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/InterstitialAds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Ads/InterstitialAds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +40,9 @@
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/Quiz.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/ScoreKeeper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../QuizMaster/Assets/Scripts/Timer.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -169,6 +141,7 @@
       <workItem from="1695735573136" duration="3163000" />
       <workItem from="1695801651085" duration="10707000" />
       <workItem from="1695906826101" duration="2174000" />
+      <workItem from="1695913227789" duration="1433000" />
     </task>
     <servers />
   </component>
@@ -183,19 +156,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs</url>
-          <line>195</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/GameManager.cs" initialLine="196" containingFunctionPresentation="Method 'SendAnalytics'">
-            <startOffsets>
-              <option value="5808" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5809" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Real Assets/Scripts/Managers/ScoreManager.cs</url>
           <line>12</line>

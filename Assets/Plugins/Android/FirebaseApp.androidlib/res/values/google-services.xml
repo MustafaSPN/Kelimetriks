@@ -6,6 +6,6 @@
   <string name="project_id" translatable="false">kelimetriks</string>
   <string name="google_api_key" translatable="false">AIzaSyBDg69VQTkrH9j8A2HgvG8hD4jgVQra2gw</string>
   <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBDg69VQTkrH9j8A2HgvG8hD4jgVQra2gw</string>
-  <string name="google_app_id" translatable="false">1:999554746956:android:f9fd239513e43fa78502e9</string>
+  <string name="google_app_id" translatable="false">1:999554746956:android:3d5faffefbf38ee88502e9</string>
   <string name="default_web_client_id" translatable="false">999554746956-tu311arrh83j10pm1gasm6gd28n9avuj.apps.googleusercontent.com</string>
 </resources>
