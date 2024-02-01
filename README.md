@@ -1,5 +1,10 @@
 # Kelimetriks
 
+## Download
+
+- [Download the latest version here]([https://github.com/your-username/your-repository/releases/latest](https://play.google.com/store/apps/details?id=com.sepen.kelimetriks))
+
+
 ## Overview
 
 **Genre:** Word Puzzle
